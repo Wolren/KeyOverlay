@@ -1,0 +1,23 @@
+﻿<Window x:Class="Programowanie.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow">
+        <Grid>
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <ContentControl Content="{Binding SelectedViewModel}"/>
+
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Button Margin="10" Width="200" Content="Keyboard Overlay" Command="{Binding UpdateViewCommand}" CommandParameter="Keyboard"/>
+                        <Button Margin="10" Width="200" Content="Settings" Command="{Binding UpdateViewCommand}" CommandParameter="Settings"/>
+                        <Button Margin="10" Width="200" Content="Mouse Overlay" Command="{Binding UpdateViewCommand}" CommandParameter="Mouse"/>
+                        <Button Margin="10" Width="200" Content="Single Key Overlay" Command="{Binding UpdateViewCommand}" CommandParameter="Key"/>
+                </StackPanel>
+        </Grid>
+</Window>
