@@ -4,20 +4,215 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow">
-        <Grid>
-                <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-
-                <ContentControl Content="{Binding SelectedViewModel}"/>
-
-                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                        <Button Margin="10" Width="200" Content="Keyboard Overlay" Command="{Binding UpdateViewCommand}" CommandParameter="Keyboard"/>
-                        <Button Margin="10" Width="200" Content="Settings" Command="{Binding UpdateViewCommand}" CommandParameter="Settings"/>
-                        <Button Margin="10" Width="200" Content="Mouse Overlay" Command="{Binding UpdateViewCommand}" CommandParameter="Mouse"/>
-                        <Button Margin="10" Width="200" Content="Single Key Overlay" Command="{Binding UpdateViewCommand}" CommandParameter="Key"/>
-                </StackPanel>
+        Title="MainWindow" WindowStyle="None"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Background="Transparent" AllowsTransparency="True"
+        BorderThickness="0">
+        <Border CornerRadius="50">
+        <Border.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#0B065D" Offset="0" />
+                <GradientStop Color="#2A198A" Offset="0.8" />
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid Name="Tops"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Center"
+              Margin="0, 10, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="30px" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100px"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Column="4"
+                    Margin="0, -40, 0, 0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    BorderThickness="0"
+                    Content="—"
+                    Foreground="White"
+                    FontSize="20"
+                    FontFamily="Montserrat"
+                    FontWeight="Medium"
+                    Cursor="Hand"
+                    Click="Minimize_OnClick">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="30" Height="30" Background="Transparent">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="4"
+                    Margin="0, 40, 0, 0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    FontSize="20"
+                    FontFamily="Montserrat"
+                    FontWeight="Medium"
+                    Cursor="Hand"
+                    Click="Close_OnClick">
+                <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="30" Height="30">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="0"
+                    Content="Settings"
+                    Margin="0, 0, 30, 0"
+                    HorizontalAlignment="Center"
+                    Height="100px"
+                    Width="300px"
+                    VerticalAlignment="Center"
+                    FontSize="23"
+                    Foreground="LightGray"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="Settings">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#087FB8" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="1"
+                    Content="Keyboard Overlay"
+                    Margin="0, 0, 30, 0"
+                    HorizontalAlignment="Center"
+                    Height="100px"
+                    Width="300px"
+                    VerticalAlignment="Center"
+                    FontSize="23"
+                    Foreground="LightGray"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="Keyboard">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#087FB8" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="2"
+                    Content="Mouse Overlay"
+                    Margin="0, 0, 30, 0"
+                    HorizontalAlignment="Center"
+                    Height="100px"
+                    Width="300px"
+                    VerticalAlignment="Center"
+                    FontSize="23"
+                    Foreground="LightGray"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="Mouse">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#087FB8" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="3"
+                    Content="Key Overlay"
+                    Margin="0, 0, 30, 0"
+                    HorizontalAlignment="Center"
+                    Height="100px"
+                    Width="300px"
+                    VerticalAlignment="Center"
+                    FontSize="23"
+                    Foreground="LightGray"
+                    FontWeight="Bold"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="Key">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#087FB8" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <ContentControl Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1"
+                            Content="{Binding SelectedViewModel}"
+                            d:DataContext="{d:DesignInstance }" Margin="0, 20, 0, 0"/>
         </Grid>
+    </Border>
 </Window>

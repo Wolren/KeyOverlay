@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace Programowanie.Overlays;
@@ -14,9 +16,16 @@ public partial class KeyboardOverlay : Window
     private readonly DispatcherTimer _timer = new();
     private double _clicks, _total, _intervalClicks;
     private List<double> _cur = new();
+    private static readonly List<Key> _keys = new() {
+        Key.A, Key.B, Key.C, Key.D, Key.E, Key.F, Key.G,
+        Key.H, Key.I, Key.H, Key.L, Key.M, Key.N, Key.O,
+        Key.Q, Key.R, Key.S, Key.T, Key.U, Key.V, Key.W,
+        Key.X, Key.Y, Key.Z};
+    private static int move;
 
     public KeyboardOverlay()
     {
+        InitializeComponent();
         KeyDown += Window_KeyDown;
         _timer.Tick += TimerTick;
         _afk.Tick += EndTick;
@@ -34,15 +43,17 @@ public partial class KeyboardOverlay : Window
 
     private void Window_KeyDown(object sender, KeyEventArgs e)
     {
-        if (!e.IsRepeat)
+        if (e.IsRepeat) return;
+        if (!_timer.IsEnabled) _timer.Start();
+        if (_keys.Contains(e.Key))
         {
-            if (!_timer.IsEnabled) _timer.Start();
-            _afk.Stop();
-            _clicks++;
-            _intervalClicks++;
-            Clicks.Text = _clicks.ToString(CultureInfo.InvariantCulture);
-            _afk.Start();
+            if(A.Name == e.Key.ToString()) A.Background = new SolidColorBrush (Colors.Red);
         }
+        _afk.Stop();
+        _clicks++;
+        _intervalClicks++;
+        Clicks.Text = _clicks.ToString(CultureInfo.InvariantCulture);
+        _afk.Start();
     }
 
     private void TimerTick(object? sender, EventArgs e)
@@ -54,7 +65,9 @@ public partial class KeyboardOverlay : Window
             _cur = _cur.Skip(1).ToList();
             _total -= _cur[0];
         }
-
+        if (A.Background != new SolidColorBrush(Colors.LightSlateGray)) {
+            A.Background = new SolidColorBrush(Colors.LightSlateGray);
+        }
         _intervalClicks = 0;
         Cps.Text = Math.Round(_total, 0).ToString(CultureInfo.InvariantCulture);
     }
