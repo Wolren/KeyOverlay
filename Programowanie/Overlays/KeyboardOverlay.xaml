@@ -4,14 +4,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         mc:Ignorable="d"
-        Title="KeyboardOverlay" Height="450" Width="800" WindowStyle="None"
+        Title="KeyboardOverlay" Height="450" Width="1050" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Background="White" AllowsTransparency="True"
         BorderThickness="0">
     <Grid>
         <TextBlock Name="Clicks" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="70" />
         <TextBlock Name="Cps" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="70" />
-        <TextBlock Name="A" HorizontalAlignment="Left" VerticalAlignment="Center" 
-                   Text="A" Width="30" Height="30" Background="LightSlateGray"/>
+        <Canvas VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Canvas.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Background" Value="#A1B6C8" />
+                    <Setter Property="TextAlignment" Value="Center" />
+                    <Setter Property="Width" Value="52" />
+                    <Setter Property="Height" Value="52" />
+                    <Setter Property="FontSize" Value="16" />
+                    <Setter Property="Padding" Value="0, 16, 0, 0"/>
+                </Style>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="4" />
+                    <Setter Property="BorderThickness" Value="3" />
+                    <Setter Property="BorderBrush" Value="Black" />
+                    <Setter Property="Margin" Value="0" />
+                </Style>
+            </Canvas.Resources>
+            <Border Margin="10, 0, 0, 0"><TextBlock Name="Esc" Text="ESC"/></Border>
+            <Border Margin="128, 0, 0, 0"><TextBlock Name="F1" Text="F1"/></Border>
+            <Border Margin="198, 0, 0, 0"><TextBlock Name="F2" Text="F2"/></Border>
+            <Border Margin="268, 0, 0, 0"><TextBlock Name="F3" Text="F3"/></Border>
+            <Border Margin="338, 0, 0, 0"><TextBlock Name="F4" Text="F4"/></Border>
+            <Border Margin="433, 0, 0, 0"><TextBlock Name="F5" Text="F5"/></Border>
+            <Border Margin="503, 0, 0, 0"><TextBlock Name="F6" Text="F6"/></Border>
+            <Border Margin="573, 0, 0, 0"><TextBlock Name="F7" Text="F7"/></Border>
+            <Border Margin="643, 0, 0, 0"><TextBlock Name="F8" Text="F8"/></Border>
+            <Border Margin="738, 0, 0, 0"><TextBlock Name="F9" Text="F9"/></Border>
+            <Border Margin="808, 0, 0, 0"><TextBlock Name="F10" Text="F10"/></Border>
+            <Border Margin="878, 0, 0, 0"><TextBlock Name="F11" Text="F11"/></Border>
+            <Border Margin="948, 0, 0, 0"><TextBlock Name="F12" Text="F12"/></Border>
+            
+            
+            <Border Margin="10, 70, 0, 0"><TextBlock Name="N1" Text="`~"/></Border>
+            <Border Margin="80, 70, 0, 0"><TextBlock Name="N2" Text="1 !"/></Border>
+            <Border Margin="150, 70, 0, 0"><TextBlock Name="N3" Text="2 @"/></Border>
+            <Border Margin="220, 70, 0, 0"><TextBlock Name="N4" Text="3 #"/></Border>
+            <Border Margin="290, 70, 0, 0"><TextBlock Name="N5" Text="4 $"/></Border>
+            <Border Margin="360, 70, 0, 0"><TextBlock Name="N6" Text="5 %"/></Border>
+            <Border Margin="430, 70, 0, 0"><TextBlock Name="N7" Text="6 ^"/></Border>
+            <Border Margin="500, 70, 0, 0"><TextBlock Name="N8" Text="7 &amp;"/></Border>
+            <Border Margin="570, 70, 0, 0"><TextBlock Name="N9" Text="8 *"/></Border>
+            <Border Margin="640, 70, 0, 0"><TextBlock Name="N10" Text="9 ("/></Border>
+            <Border Margin="710, 70, 0, 0"><TextBlock Name="N11" Text="0 )"/></Border>
+            <Border Margin="780, 70, 0, 0"><TextBlock Name="N12" FontWeight="Medium" Text="- _"/></Border>
+            <Border Margin="850, 70, 0, 0"><TextBlock Name="N13" FontWeight="Medium" Text="= +"/></Border>
+            <Border Margin="920, 70, 0, 0"><TextBlock Name="N14" Width="80" Text="BACK"/></Border>
+            
+            
+            <Border Margin="10, 140, 0, 0"><TextBlock Name="Tab" Text="TAB" Width="80"/></Border>
+            <Border Margin="110, 140, 0, 0"><TextBlock Name="Q" Text="Q"/></Border>
+            <Border Margin="180, 140, 0, 0"><TextBlock Name="W" Text="W"/></Border>
+            <Border Margin="250, 140, 0, 0"><TextBlock Name="E" Text="E"/></Border>
+            <Border Margin="320 140, 0, 0"><TextBlock Name="R" Text="R"/></Border>
+            <Border Margin="390, 140, 0, 0"><TextBlock Name="T" Text="T"/></Border>
+            <Border Margin="460, 140, 0, 0"><TextBlock Name="Y" Text="Y"/></Border>
+            <Border Margin="530, 140, 0, 0"><TextBlock Name="U" Text="U"/></Border>
+            <Border Margin="600, 140, 0, 0"><TextBlock Name="I" Text="I"/></Border>
+            <Border Margin="670, 140, 0, 0"><TextBlock Name="O" Text="O"/></Border>
+            <Border Margin="740, 140, 0, 0"><TextBlock Name="P" Text="P"/></Border>
+            <Border Margin="810, 140, 0, 0"><TextBlock Name="P1" Text="[{"/></Border>
+            <Border Margin="880, 140, 0, 0"><TextBlock Name="P2" Text="]}"/></Border>
+            <Border Margin="950, 140, 0, 0"><TextBlock Name="P3" Text="\|"/></Border>
+        </Canvas>
     </Grid>
 </Window>
