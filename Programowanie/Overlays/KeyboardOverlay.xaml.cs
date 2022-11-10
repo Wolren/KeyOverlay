@@ -23,6 +23,12 @@ public partial class KeyboardOverlay : Window
         Key.D7, Key.D8, Key.D9, Key.OemMinus, Key.OemPlus, Key.Back,
         Key.Tab, Key.Q, Key.W, Key.E, Key.R, Key.T, Key.Y, Key.U, Key.I,
         Key.O, Key.P, Key.OemOpenBrackets, Key.Oem6, Key.Oem5,
+        Key.CapsLock, Key.A, Key.S, Key.D, Key.F, Key.G, Key.H, Key.J, Key.K,
+        Key.L, Key.Oem1, Key.OemQuotes, Key.Return,
+        Key.LeftShift, Key.Z, Key.X, Key.C, Key.V, Key.B, Key.N, Key.M,
+        Key.OemComma, Key.OemPeriod, Key.OemQuestion, Key.RightShift,
+        Key.LeftCtrl, Key.LWin, Key.LeftAlt, Key.Space,
+        Key.RightAlt, Key.Apps, Key.RightCtrl
     };
 
 
@@ -37,6 +43,8 @@ public partial class KeyboardOverlay : Window
         _afk.Interval = new TimeSpan(0, 0, 2);
         Clicks.Text = "0";
         Cps.Text = "0";
+        Cps.FontSize = 20;
+        Clicks.FontSize = 20;
     }
 
     protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -47,8 +55,8 @@ public partial class KeyboardOverlay : Window
 
     private void Window_KeyDown(object sender, KeyEventArgs e)
     {
+        if (!_keys.Contains(e.Key)) return;
         BackgroundSwitch(e);
-        P3.Text = e.Key.ToString();
         if (e.IsRepeat) return;
         if (!_timer.IsEnabled) _timer.Start();
         _afk.Stop();
@@ -129,6 +137,44 @@ public partial class KeyboardOverlay : Window
         else if (key(e, Key.OemOpenBrackets)) P1.Background = brush;
         else if (key(e, Key.Oem6)) P2.Background = brush;
         else if (key(e, Key.Oem5)) P3.Background = brush;
+        
+        
+        else if(key(e, Key.Capital)) A1.Background = brush;
+        else if(key(e, Key.A)) A.Background = brush;
+        else if(key(e, Key.S)) S.Background = brush;
+        else if(key(e, Key.D)) D.Background = brush;
+        else if(key(e, Key.F)) F.Background = brush;
+        else if(key(e, Key.G)) G.Background = brush;
+        else if(key(e, Key.H)) H.Background = brush;
+        else if(key(e, Key.J)) J.Background = brush;
+        else if(key(e, Key.K)) K.Background = brush;
+        else if(key(e, Key.L)) L.Background = brush;
+        else if(key(e, Key.Oem1)) A2.Background = brush;
+        else if(key(e, Key.OemQuotes)) A3.Background = brush;
+        else if(key(e, Key.Return)) A4.Background = brush;
+        
+        
+        else if(key(e, Key.LeftShift)) Z1.Background = brush;
+        else if(key(e, Key.Z)) Z.Background = brush;
+        else if(key(e, Key.X)) X.Background = brush;
+        else if(key(e, Key.C)) C.Background = brush;
+        else if(key(e, Key.V)) V.Background = brush;
+        else if(key(e, Key.B)) B.Background = brush;
+        else if(key(e, Key.N)) N.Background = brush;
+        else if(key(e, Key.M)) M.Background = brush;
+        else if(key(e, Key.OemComma)) Z2.Background = brush;
+        else if(key(e, Key.OemPeriod)) Z3.Background = brush;
+        else if(key(e, Key.OemQuestion)) Z4.Background = brush;
+        else if(key(e, Key.RightShift)) Z5.Background = brush;
+        
+        
+        else if(key(e, Key.LeftCtrl)) L1.Background = brush;
+        else if(key(e, Key.LWin)) L2.Background = brush;
+        else if(key(e, Key.LeftAlt)) L3.Background = brush;
+        else if(key(e, Key.Space)) L4.Background = brush;
+        else if(key(e, Key.RightAlt)) L5.Background = brush;
+        else if(key(e, Key.Apps)) L7.Background = brush;
+        else if(key(e, Key.RightCtrl)) L8.Background = brush;
     }
 
     private static bool key(KeyEventArgs e, Key key)
@@ -142,7 +188,11 @@ public partial class KeyboardOverlay : Window
         List<TextBlock> lines = new() { 
             Esc, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
             N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, N13, N14,
-            Tab, Q, W, E, R, T, Y, U, I, O, P, P1, P2, P3 };
+            Tab, Q, W, E, R, T, Y, U, I, O, P, P1, P2, P3,
+            A1, A, S, D, F, G, H, J, K, L, A2, A3, A4,
+            Z1, Z, X, C, V, B, N, M, Z2, Z3, Z4, Z5,
+            L1, L2, L3, L4, L5, L6, L7, L8
+        };
         foreach (var l in lines) { l.Background = brush; }
     }
 }

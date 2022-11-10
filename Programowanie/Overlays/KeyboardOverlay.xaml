@@ -4,13 +4,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         mc:Ignorable="d"
-        Title="KeyboardOverlay" Height="450" Width="1050" WindowStyle="None"
+        Title="KeyboardOverlay" Height="417" Width="1090" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Background="White" AllowsTransparency="True"
+        Background="Transparent" AllowsTransparency="True"
         BorderThickness="0">
     <Grid>
-        <TextBlock Name="Clicks" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="70" />
-        <TextBlock Name="Cps" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="70" />
+        <TextBlock Margin="1005, 10, 0, 0" Text="CPS" Foreground="White" FontSize="20" TextAlignment="Center"/>
+        <TextBlock Margin="1005, 40, 0, 0" Name="Cps" Foreground="White" TextAlignment="Center"/>
+        <TextBlock Margin="1005, 90, 0, 0" Text="CLICKS" Foreground="White" FontSize="20" TextAlignment="Center"/>
+        <TextBlock Margin="1005, 120, 0, 0" Name="Clicks" Foreground="White" TextAlignment="Center"/>
         <Canvas VerticalAlignment="Top" HorizontalAlignment="Left">
             <Canvas.Resources>
                 <Style TargetType="TextBlock">
@@ -60,19 +62,58 @@
             
             
             <Border Margin="10, 140, 0, 0"><TextBlock Name="Tab" Text="TAB" Width="80"/></Border>
-            <Border Margin="110, 140, 0, 0"><TextBlock Name="Q" Text="Q"/></Border>
-            <Border Margin="180, 140, 0, 0"><TextBlock Name="W" Text="W"/></Border>
-            <Border Margin="250, 140, 0, 0"><TextBlock Name="E" Text="E"/></Border>
-            <Border Margin="320 140, 0, 0"><TextBlock Name="R" Text="R"/></Border>
-            <Border Margin="390, 140, 0, 0"><TextBlock Name="T" Text="T"/></Border>
-            <Border Margin="460, 140, 0, 0"><TextBlock Name="Y" Text="Y"/></Border>
-            <Border Margin="530, 140, 0, 0"><TextBlock Name="U" Text="U"/></Border>
-            <Border Margin="600, 140, 0, 0"><TextBlock Name="I" Text="I"/></Border>
-            <Border Margin="670, 140, 0, 0"><TextBlock Name="O" Text="O"/></Border>
-            <Border Margin="740, 140, 0, 0"><TextBlock Name="P" Text="P"/></Border>
-            <Border Margin="810, 140, 0, 0"><TextBlock Name="P1" Text="[{"/></Border>
-            <Border Margin="880, 140, 0, 0"><TextBlock Name="P2" Text="]}"/></Border>
-            <Border Margin="950, 140, 0, 0"><TextBlock Name="P3" Text="\|"/></Border>
+            <Border Margin="108, 140, 0, 0"><TextBlock Name="Q" Text="Q"/></Border>
+            <Border Margin="178, 140, 0, 0"><TextBlock Name="W" Text="W"/></Border>
+            <Border Margin="248, 140, 0, 0"><TextBlock Name="E" Text="E"/></Border>
+            <Border Margin="318 140, 0, 0"><TextBlock Name="R" Text="R"/></Border>
+            <Border Margin="388, 140, 0, 0"><TextBlock Name="T" Text="T"/></Border>
+            <Border Margin="458, 140, 0, 0"><TextBlock Name="Y" Text="Y"/></Border>
+            <Border Margin="528, 140, 0, 0"><TextBlock Name="U" Text="U"/></Border>
+            <Border Margin="598, 140, 0, 0"><TextBlock Name="I" Text="I"/></Border>
+            <Border Margin="668, 140, 0, 0"><TextBlock Name="O" Text="O"/></Border>
+            <Border Margin="738, 140, 0, 0"><TextBlock Name="P" Text="P"/></Border>
+            <Border Margin="808, 140, 0, 0"><TextBlock Name="P1" Text="[{"/></Border>
+            <Border Margin="878, 140, 0, 0"><TextBlock Name="P2" Text="]}"/></Border>
+            <Border Margin="948, 140, 0, 0"><TextBlock Name="P3" Text="\|"/></Border>
+            
+            
+            <Border Margin="10, 210, 0, 0"><TextBlock Name="A1" Text="CAPS LOCK" Width="95"/></Border>
+            <Border Margin="125, 210, 0, 0"><TextBlock Name="A" Text="A"/></Border>
+            <Border Margin="195, 210, 0, 0"><TextBlock Name="S" Text="S"/></Border>
+            <Border Margin="265, 210, 0, 0"><TextBlock Name="D" Text="D"/></Border>
+            <Border Margin="335, 210, 0, 0"><TextBlock Name="F" Text="F"/></Border>
+            <Border Margin="405, 210, 0, 0"><TextBlock Name="G" Text="G"/></Border>
+            <Border Margin="475, 210, 0, 0"><TextBlock Name="H" Text="H"/></Border>
+            <Border Margin="545, 210, 0, 0"><TextBlock Name="J" Text="J"/></Border>
+            <Border Margin="615, 210, 0, 0"><TextBlock Name="K" Text="K"/></Border>
+            <Border Margin="685, 210, 0, 0"><TextBlock Name="L" Text="L"/></Border>
+            <Border Margin="755, 210, 0, 0"><TextBlock Name="A2" Text="; :"/></Border>
+            <Border Margin="825, 210, 0, 0"><TextBlock Name="A3" Text="' &#34;"/></Border>
+            <Border Margin="895, 210, 0, 0"><TextBlock Name="A4" Text="ENTER" Width="105"/></Border>
+            
+            
+            <Border Margin="10, 280, 0, 0"><TextBlock Name="Z1" Text="Shift" Width="130"/></Border>
+            <Border Margin="160, 280, 0, 0"><TextBlock Name="Z" Text="Z"/></Border>
+            <Border Margin="230, 280, 0, 0"><TextBlock Name="X" Text="X"/></Border>
+            <Border Margin="300, 280, 0, 0"><TextBlock Name="C" Text="C"/></Border>
+            <Border Margin="370, 280, 0, 0"><TextBlock Name="V" Text="V"/></Border>
+            <Border Margin="440, 280, 0, 0"><TextBlock Name="B" Text="B"/></Border>
+            <Border Margin="510, 280, 0, 0"><TextBlock Name="N" Text="N"/></Border>
+            <Border Margin="580, 280, 0, 0"><TextBlock Name="M" Text="M"/></Border>
+            <Border Margin="650, 280, 0, 0"><TextBlock Name="Z2" Text=", &lt;"/></Border>
+            <Border Margin="720, 280, 0, 0"><TextBlock Name="Z3" Text=". &gt;"/></Border>
+            <Border Margin="790, 280, 0, 0"><TextBlock Name="Z4" Text="/ ?"/></Border>
+            <Border Margin="860, 280, 0, 0"><TextBlock Name="Z5" Text="SHIFT" Width="140"/></Border>
+            
+            
+            <Border Margin="10, 350, 0, 0"><TextBlock Name="L1" Text="CTRL" Width="65"/></Border>
+            <Border Margin="95, 350, 0, 0"><TextBlock Name="L2" Text="WIN" Width="65"/></Border>
+            <Border Margin="180, 350, 0, 0"><TextBlock Name="L3" Text="ALT" Width="65"/></Border>
+            <Border Margin="265, 350, 0, 0"><TextBlock Name="L4" Text="SPACE" Width="395"/></Border>
+            <Border Margin="680, 350, 0, 0"><TextBlock Name="L5" Text="ALT" Width="65"/></Border>
+            <Border Margin="765, 350, 0, 0"><TextBlock Name="L6" Text="FN" Width="65"/></Border>
+            <Border Margin="850, 350, 0, 0"><TextBlock Name="L7" Text="APPS" Width="65"/></Border>
+            <Border Margin="935, 350, 0, 0"><TextBlock Name="L8" Text="CTRL" Width="65"/></Border>
         </Canvas>
     </Grid>
 </Window>
