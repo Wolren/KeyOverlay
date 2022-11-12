@@ -1,4 +1,5 @@
-﻿namespace Programowanie.ViewModels
+﻿namespace Programowanie.ViewModels;
+
+public class SettingsViewModel : BaseViewModel
 {
-    public class SettingsViewModel : BaseViewModel { }
 }

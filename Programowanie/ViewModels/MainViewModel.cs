@@ -1,26 +1,26 @@
 ﻿using System.Windows.Input;
 using Programowanie.Commands;
 
-namespace Programowanie.ViewModels
+namespace Programowanie.ViewModels;
+
+public class MainViewModel : BaseViewModel
 {
-    public class MainViewModel : BaseViewModel
+    private BaseViewModel? _selectedViewModel;
+
+    public MainViewModel()
     {
-        private BaseViewModel? _selectedViewModel;
-        public BaseViewModel? SelectedViewModel
-        {
-            get => _selectedViewModel;
-            set
-            {
-                _selectedViewModel = value;
-                OnPropertyChanged(nameof(SelectedViewModel));
-            }
-        }
+        UpdateViewCommand = new UpdateViewCommand(this);
+    }
 
-        public ICommand UpdateViewCommand { get; set; }
-
-        public MainViewModel()
+    public BaseViewModel? SelectedViewModel
+    {
+        get => _selectedViewModel;
+        set
         {
-            UpdateViewCommand = new UpdateViewCommand(this);
+            _selectedViewModel = value;
+            OnPropertyChanged(nameof(SelectedViewModel));
         }
     }
+
+    public ICommand UpdateViewCommand { get; set; }
 }

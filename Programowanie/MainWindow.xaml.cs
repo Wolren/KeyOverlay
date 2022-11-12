@@ -2,33 +2,32 @@
 using System.Windows.Input;
 using Programowanie.ViewModels;
 
-namespace Programowanie
+namespace Programowanie;
+
+public partial class MainWindow : Window
 {
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-            Height = SystemParameters.PrimaryScreenHeight * 0.60;
-            Width = SystemParameters.PrimaryScreenWidth * 0.80;
-            Tops.Width = SystemParameters.PrimaryScreenWidth * 0.75;
-            DataContext = new MainViewModel();
-        }
-        
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            base.OnMouseLeftButtonDown(e);
-            DragMove();
-        }
+        InitializeComponent();
+        Height = SystemParameters.PrimaryScreenHeight * 0.60;
+        Width = SystemParameters.PrimaryScreenWidth * 0.80;
+        Tops.Width = SystemParameters.PrimaryScreenWidth * 0.75;
+        DataContext = new MainViewModel();
+    }
 
-        private void Minimize_OnClick(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
+    protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+    {
+        base.OnMouseLeftButtonDown(e);
+        DragMove();
+    }
 
-        private void Close_OnClick(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
+    private void Minimize_OnClick(object sender, RoutedEventArgs e)
+    {
+        WindowState = WindowState.Minimized;
+    }
+
+    private void Close_OnClick(object sender, RoutedEventArgs e)
+    {
+        Application.Current.Shutdown();
     }
 }

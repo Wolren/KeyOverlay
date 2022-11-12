@@ -5,43 +5,43 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d">
     <Grid>
-    <TextBlock Text="Keyboard Overlay"
-               FontSize="40"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"/>
-    <Button HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Content="Run"
-            Margin="0, 0, 10,0"
-            Width="100px"
-            Height="40px"
-            Cursor="Hand"
-            Click="ButtonBase_OnClick">
-        <Button.Resources>
-            <Style TargetType="Border">
-                <Setter Property="CornerRadius" Value="14"/>
-            </Style>
-        </Button.Resources>
-        <Button.Style>
-            <Style TargetType="{x:Type Button}">
-                <Setter Property="Background" Value="#087FB8" />
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type Button}">
-                            <Border Background="{TemplateBinding Background}">
-                                <ContentPresenter HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center" />
-                            </Border>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="#087FB8" />
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
-        </Button.Style>
-    </Button>
+        <TextBlock Text="Keyboard Overlay"
+                   FontSize="40"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" />
+        <Button HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Content="Run"
+                Margin="0, 0, 10,0"
+                Width="100px"
+                Height="40px"
+                Cursor="Hand"
+                Click="ButtonBase_OnClick">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="14" />
+                </Style>
+            </Button.Resources>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#087FB8" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#087FB8" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </UserControl>

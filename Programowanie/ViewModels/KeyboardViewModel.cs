@@ -1,4 +1,5 @@
-﻿namespace Programowanie.ViewModels
+﻿namespace Programowanie.ViewModels;
+
+public class KeyboardViewModel : BaseViewModel
 {
-    public class KeyboardViewModel : BaseViewModel { }
 }

@@ -1,3 +1,5 @@
 ﻿namespace Programowanie.ViewModels;
 
-public class SingleKeyViewModel : BaseViewModel { }
+public class SingleKeyViewModel : BaseViewModel
+{
+}

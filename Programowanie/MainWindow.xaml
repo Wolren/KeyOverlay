@@ -8,7 +8,7 @@
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Background="Transparent" AllowsTransparency="True"
         BorderThickness="0">
-        <Border CornerRadius="50">
+    <Border CornerRadius="50">
         <Border.Background>
             <LinearGradientBrush>
                 <GradientStop Color="#0B065D" Offset="0" />
@@ -27,8 +27,8 @@
                 <ColumnDefinition Width="30px" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100px"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="100px" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Button Grid.Column="4"
                     Margin="0, -40, 0, 0"
@@ -63,12 +63,12 @@
                     Cursor="Hand"
                     Click="Close_OnClick">
                 <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Width="30" Height="30">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="30" Height="30">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
             </Button>
             <Button Grid.Row="0" Grid.Column="0"
                     Content="Settings"
@@ -92,7 +92,7 @@
                                 <ControlTemplate TargetType="{x:Type Button}">
                                     <Border Background="{TemplateBinding Background}">
                                         <ContentPresenter HorizontalAlignment="Center"
-                                                          VerticalAlignment="Center"/>
+                                                          VerticalAlignment="Center" />
                                     </Border>
                                 </ControlTemplate>
                             </Setter.Value>
@@ -212,7 +212,7 @@
             </Button>
             <ContentControl Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1"
                             Content="{Binding SelectedViewModel}"
-                            d:DataContext="{d:DesignInstance }" Margin="0, 20, 0, 0"/>
+                            d:DataContext="{d:DesignInstance }" Margin="0, 20, 0, 0" />
         </Grid>
     </Border>
 </Window>
