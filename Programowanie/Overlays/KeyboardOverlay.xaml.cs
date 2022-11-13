@@ -34,6 +34,7 @@ public partial class KeyboardOverlay
         0xA2, 0x5B, 0xA4, 0x20, 0xA5, 0x5D, 0x11, 0xA3
     };
     
+    
     public delegate void KeyEventHandler(int vkCode);
     public static event KeyEventHandler? OnKeyPressed;
     
@@ -47,6 +48,7 @@ public partial class KeyboardOverlay
     private readonly DispatcherTimer _timer = new();
     private double _clicks, _total, _intervalClicks;
     private List<double> _cur = new();
+    private List<TextBlock> lines;
 
     public KeyboardOverlay()
     {
@@ -60,6 +62,15 @@ public partial class KeyboardOverlay
         Cps.FontSize = 20;
         Clicks.FontSize = 20;
         OnKeyPressed += KeyHandler;
+        lines = new List<TextBlock>
+        {
+            Esc, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
+            N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, N13, N14,
+            Tab, Q, W, E, R, T, Y, U, I, O, P, P1, P2, P3,
+            A1, A, S, D, F, G, H, J, K, L, A2, A3, A4,
+            Z1, Z, X, C, V, B, N, M, Z2, Z3, Z4, Z5,
+            L1, L2, L3, L4, L5, L6, L7, L8
+        };
     }
     
     private static IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam)
@@ -203,17 +214,7 @@ public partial class KeyboardOverlay
 
     private void BackgroundReset()
     {
-        SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(161, 182, 200));
-        List<TextBlock> lines = new()
-        {
-            Esc, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
-            N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, N13, N14,
-            Tab, Q, W, E, R, T, Y, U, I, O, P, P1, P2, P3,
-            A1, A, S, D, F, G, H, J, K, L, A2, A3, A4,
-            Z1, Z, X, C, V, B, N, M, Z2, Z3, Z4, Z5,
-            L1, L2, L3, L4, L5, L6, L7, L8
-        };
-        foreach (TextBlock l in lines) l.Background = brush;
+        foreach (TextBlock l in lines) l.Background = new SolidColorBrush(Color.FromRgb(161, 182, 200));
     }
 
     protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)

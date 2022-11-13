@@ -25,13 +25,13 @@ public class UpdateViewCommand : ICommand
     public void Execute(object? parameter)
     {
         Debug.Assert(parameter != null, nameof(parameter) + " != null");
-        //Można zastąpić switchem 
-        if (parameter.ToString() == "Keyboard")
-            _viewModel.SelectedViewModel = new KeyboardViewModel();
-        else if (parameter.ToString() == "Settings")
-            _viewModel.SelectedViewModel = new SettingsViewModel();
-        else if (parameter.ToString() == "Mouse")
-            _viewModel.SelectedViewModel = new MouseViewModel();
-        else if (parameter.ToString() == "Key") _viewModel.SelectedViewModel = new SingleKeyViewModel();
+        _viewModel.SelectedViewModel = parameter.ToString() switch
+        {
+            "Keyboard" => new KeyboardViewModel(),
+            "Settings" => new SettingsViewModel(),
+            "Mouse" => new MouseViewModel(),
+            "Key" => new SingleKeyViewModel(),
+            _ => _viewModel.SelectedViewModel
+        };
     }
 }

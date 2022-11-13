@@ -12,7 +12,10 @@ public partial class MouseView : UserControl
     }
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        MouseOverlay MouseOverlay = new MouseOverlay();
-        MouseOverlay.Show();
+        if (!KeyboardView.IsWindowOpen<MouseOverlay>())
+        {
+            MouseOverlay mouseOverlay = new MouseOverlay();
+            mouseOverlay.Show();
+        }
     }
 }

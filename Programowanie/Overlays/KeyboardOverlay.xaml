@@ -3,8 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:Programowanie"
-        xmlns:overlays="clr-namespace:Programowanie.Overlays"
         mc:Ignorable="d"
         Title="KeyboardOverlay" Height="417" Width="1090" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen"

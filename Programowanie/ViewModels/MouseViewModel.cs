@@ -1,3 +1,5 @@
 ﻿namespace Programowanie.ViewModels;
 
-public class MouseViewModel : BaseViewModel { }
+public class MouseViewModel : BaseViewModel
+{
+}
