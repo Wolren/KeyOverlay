@@ -4,16 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d">
-    <Grid>
-        
+    <Canvas>
         <Button HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Content="Run"
-            Margin="0, 0, 10,0"
-            Width="100px"
-            Height="40px"
-            Cursor="Hand"
-            Click="ButtonBase_OnClick">
+                VerticalAlignment="Top"
+                Content="Run"
+                Margin="800, 0, 10,0"
+                Width="100px"
+                Height="40px"
+                Cursor="Hand"
+                Click="ButtonBase_OnClick">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="14"/>
@@ -40,5 +39,44 @@
                 </Style>
             </Button.Style>
         </Button>
-    </Grid>
+        <CheckBox Name="MouseStatistics"
+                  Height="24"
+                  FontSize="14"
+                  Width="500"
+                  Checked="mouseStatisticsCheck"
+                  Unchecked="mouseStatisticsUncheck"
+                  Foreground="White">Turn on/off mouse statistics</CheckBox>
+        <CheckBox Name="ScrollClicks"
+                  Height="24"
+                  FontSize="14"
+                  Width="500"
+                  Margin="0, 50, 0, 0"
+                  Checked="scrollClicksCheck"
+                  Unchecked="scrollClicksUncheck"
+                  Foreground="White">Turn on/off scroll clicks display</CheckBox>
+        <CheckBox Name="MouseClicks"
+                  Height="24"
+                  FontSize="14"
+                  Width="500"
+                  Margin="0, 100, 0, 0"
+                  Checked="mouseClicksCheck"
+                  Unchecked="mouseClicksUncheck"
+                  Foreground="White">Turn on/off mouse clicks display</CheckBox>
+        <CheckBox Name="ScrollCPS"
+                  Height="24"
+                  FontSize="14"
+                  Width="500"
+                  Margin="0, 150, 0, 0"
+                  Checked="scrollCpsCheck"
+                  Unchecked="scrollCpsUncheck"
+                  Foreground="White">Turn on/off scroll clicks per second display</CheckBox>
+        <CheckBox Name="MouseCPS"
+                  Height="24"
+                  FontSize="14"
+                  Width="500"
+                  Margin="0, 200, 0, 0"
+                  Checked="mouseCpsCheck"
+                  Unchecked="mouseCpsUncheck"
+                  Foreground="White">Turn on/off mouse clicks per second display</CheckBox>
+    </Canvas>
 </UserControl>

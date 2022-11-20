@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d">
-    <Grid>
+    <Canvas>
         <Button HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Content="Run"
-                Margin="0, 0, 10,0"
+                Margin="800, 0, 10,0"
                 Width="100px"
                 Height="40px"
                 Cursor="Hand"
@@ -39,5 +39,20 @@
                 </Style>
             </Button.Style>
         </Button>
-    </Grid>
+        <CheckBox Name="KeyboardClicks"
+                  Height="24"
+                  FontSize="14"
+                  Width="500"
+                  Checked="keyboardClicksCheck"
+                  Unchecked="keyboardClicksUncheck"
+                  Foreground="White">Turn on/off mouse clicks display</CheckBox>
+        <CheckBox Name="KeyboardCPS"
+                  Height="24"
+                  FontSize="14"
+                  Width="500"
+                  Margin="0, 50, 0, 0"
+                  Checked="keyboardCpsCheck"
+                  Unchecked="keyboardCpsUncheck"
+                  Foreground="White">Turn on/off scroll clicks per second display</CheckBox>
+    </Canvas>
 </UserControl>

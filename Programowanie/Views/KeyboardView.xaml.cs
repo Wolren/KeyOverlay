@@ -1,30 +1,55 @@
 ﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using Programowanie.Overlays;
+using static System.Windows.Application;
+using static Programowanie.Properties.Settings;
 
 namespace Programowanie.Views;
 
-public partial class KeyboardView : UserControl
+public partial class KeyboardView
 {
     public KeyboardView()
     {
         InitializeComponent();
+        if (Default.KeyboardClicks) KeyboardClicks.IsChecked = true;
+        if (Default.KeyboardCPS) KeyboardCPS.IsChecked = true;
     }
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        if (!IsWindowOpen<KeyboardOverlay>())
+        if (isWindowOpen<KeyboardOverlay>()) return;
+        KeyboardOverlay keyboardOverlay = new KeyboardOverlay();
+        keyboardOverlay.Show();
+        if (Default.Close && Current.MainWindow != null)
         {
-            KeyboardOverlay keyboardOverlay = new KeyboardOverlay();
-            keyboardOverlay.Show();
+            Current.MainWindow.Hide();
         }
     }
     
-    public static bool IsWindowOpen<T>(string name = "") where T : Window
+    public static bool isWindowOpen<T>(string name = "") where T : Window
     {
         return string.IsNullOrEmpty(name)
-            ? Application.Current.Windows.OfType<T>().Any()
-            : Application.Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
+            ? Current.Windows.OfType<T>().Any()
+            : Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
+    }
+
+    private void keyboardClicksCheck(object sender, RoutedEventArgs e)
+    {
+        Default.KeyboardClicks = true;
+    }
+
+    private void keyboardClicksUncheck(object sender, RoutedEventArgs e)
+    {
+        Default.KeyboardClicks = false;
+    }
+
+    private void keyboardCpsCheck(object sender, RoutedEventArgs e)
+    {
+        Default.KeyboardCPS = true;
+    }
+
+    private void keyboardCpsUncheck(object sender, RoutedEventArgs e)
+    {
+        Default.KeyboardCPS = false;
     }
 }

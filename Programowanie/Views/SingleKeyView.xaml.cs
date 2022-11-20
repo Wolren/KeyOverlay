@@ -1,8 +1,6 @@
-﻿using System.Windows.Controls;
+﻿namespace Programowanie.Views;
 
-namespace Programowanie.Views;
-
-public partial class SingleKeyView : UserControl
+public partial class SingleKeyView
 {
     public SingleKeyView()
     {

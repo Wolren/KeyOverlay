@@ -1,30 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
+using static Programowanie.Properties.Settings;
 
 namespace Programowanie.Overlays;
 
 public partial class KeyboardOverlay
 {
-    [DllImport("user32.dll")]
-    private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc callback, IntPtr hInstance, uint threadId);
+    [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+    private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc callback, IntPtr instance, uint threadId);
 
-    [DllImport("user32.dll")]
-    private static extern bool UnhookWindowsHookEx(IntPtr hInstance);
+    [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+    private static extern bool UnhookWindowsHookEx(IntPtr instance);
 
-    [DllImport("user32.dll")]
-    private static extern IntPtr CallNextHookEx(IntPtr idHook, int nCode, int wParam, IntPtr lParam);
+    [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+    private static extern IntPtr CallNextHookEx(IntPtr idHook, int code, int wParam, IntPtr lParam);
 
-    [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
-    private static extern IntPtr LoadLibrary(string lpFileName);
+    [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+    private static extern IntPtr LoadLibrary([Localizable(false)] string fileName);
+    public delegate void KeyEventHandler(int vk);
+    public static event KeyEventHandler? OnKeyPressed;
     
-    private static readonly List<int> Keys = new()
+    private static readonly List<int> _keys = new()
     {
         0x1B, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0x7B,
         0xC0, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x30, 0xBD, 0xBB, 0x08,
@@ -34,35 +39,42 @@ public partial class KeyboardOverlay
         0xA2, 0x5B, 0xA4, 0x20, 0xA5, 0x5D, 0x11, 0xA3
     };
     
-    
-    public delegate void KeyEventHandler(int vkCode);
-    public static event KeyEventHandler? OnKeyPressed;
-    
     private const int WM_KEYDOWN = 0x100;
     private const int WM_KEYUP = 0x101;
-
-    private static readonly List<int> KeysDown = new();
-    private static readonly LowLevelKeyboardProc _proc = HookProc;
-    private static IntPtr hhook = IntPtr.Zero;
+    
+    private static readonly LowLevelKeyboardProc _proc = hookProc;
+    private static IntPtr _hook = IntPtr.Zero;
     private readonly DispatcherTimer _afk = new();
     private readonly DispatcherTimer _timer = new();
+    private static readonly List<int> _keysDown = new();
+    private List<double> _current = new();
+    private readonly List<TextBlock> _lines;
     private double _clicks, _total, _intervalClicks;
-    private List<double> _cur = new();
-    private List<TextBlock> lines;
 
+    [Localizable(false)]
     public KeyboardOverlay()
     {
         InitializeComponent();
-        _timer.Tick += TimerTick;
-        _afk.Tick += EndTick;
+        if (!Default.KeyboardClicks)
+        {
+            CLICKS.Visibility = Visibility.Collapsed;
+            Clicks.Visibility = Visibility.Collapsed;
+        }
+        if (!Default.KeyboardCPS)
+        {
+            CPS.Visibility = Visibility.Collapsed;
+            Cps.Visibility = Visibility.Collapsed;
+        }
+        _timer.Tick += timerTick;
+        _afk.Tick += endTick;
         _timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
         _afk.Interval = new TimeSpan(0, 0, 2);
         Clicks.Text = "0";
         Cps.Text = "0";
         Cps.FontSize = 20;
         Clicks.FontSize = 20;
-        OnKeyPressed += KeyHandler;
-        lines = new List<TextBlock>
+        OnKeyPressed += keyHandler;
+        _lines = new List<TextBlock>
         {
             Esc, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
             N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, N13, N14,
@@ -73,60 +85,61 @@ public partial class KeyboardOverlay
         };
     }
     
-    private static IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam)
+    private static IntPtr hookProc(int code, IntPtr wParam, IntPtr lParam)
     {
-        if (code < 0) return CallNextHookEx(hhook, code, (int)wParam, lParam);
-        int vkCode = Marshal.ReadInt32(lParam);
+        if (code < 0) return CallNextHookEx(_hook, code, (int)wParam, lParam);
+        int vk = Marshal.ReadInt32(lParam);
         if (wParam == (IntPtr)WM_KEYDOWN)
         {
-            if (!KeysDown.Contains(vkCode) && Keys.Contains(vkCode)) OnKeyPressed?.Invoke(vkCode);
-            KeysDown.Add(vkCode);
+            if (!_keysDown.Contains(vk) && _keys.Contains(vk)) OnKeyPressed?.Invoke(vk);
+            _keysDown.Add(vk);
         } else if (wParam == (IntPtr)WM_KEYUP)
         {
-            KeysDown.RemoveAll(k => k == vkCode);
+            _keysDown.RemoveAll(k => k == vk);
         }
 
-        return CallNextHookEx(hhook, code, (int)wParam, lParam);
+        return CallNextHookEx(_hook, code, (int)wParam, lParam);
     }
 
-    private void KeyHandler(int vkCode)
+    private void keyHandler(int vkCode)
     {
         if (!_timer.IsEnabled) _timer.Start();
         _afk.Stop();
         _clicks++;
         _intervalClicks++;
         Clicks.Text = _clicks.ToString(CultureInfo.InvariantCulture);
-        BackgroundSwitch(vkCode);
+        backgroundSwitch(vkCode);
         _afk.Start();
     }
 
-    private void TimerTick(object? sender, EventArgs e)
+    private void timerTick(object? sender, EventArgs e)
     {
-        _cur.Add(_intervalClicks);
+        _current.Add(_intervalClicks);
         _total += _intervalClicks;
-        if (_cur.Count > 10)
+        if (_current.Count > 10)
         {
-            _cur = _cur.Skip(1).ToList();
-            _total -= _cur[0];
+            _current = _current.Skip(1).ToList();
+            _total -= _current[0];
         }
-
         _intervalClicks = 0;
         Cps.Text = Math.Round(_total, 0).ToString(CultureInfo.InvariantCulture);
-        BackgroundReset();
+        backgroundReset();
     }
 
-    private void EndTick(object? sender, EventArgs e)
+    [Localizable(false)]
+    private void endTick(object? sender, EventArgs e)
     {
         Cps.Text = "0";
         _total = 0;
-        _cur.Clear();
+        _current.Clear();
         _timer.Stop();
         _afk.Stop();
     }
 
-    private void BackgroundSwitch(int vkCode)
+    private void backgroundSwitch(int vkCode)
     {
         SolidColorBrush brush = new SolidColorBrush(Colors.Red);
+        // Spróbować zastąpić "key : value" pair
         if (vkCode == 0x1B) Esc.Background = brush;
         else if (vkCode == 0x70) F1.Background = brush;
         else if (vkCode == 0x71) F2.Background = brush;
@@ -212,9 +225,9 @@ public partial class KeyboardOverlay
         else if (vkCode == 0xA3) L8.Background = brush;
     }
 
-    private void BackgroundReset()
+    private void backgroundReset()
     {
-        foreach (TextBlock l in lines) l.Background = new SolidColorBrush(Color.FromRgb(161, 182, 200));
+        foreach (TextBlock l in _lines) l.Background = new SolidColorBrush(Color.FromRgb(161, 182, 200));
     }
 
     protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -223,25 +236,26 @@ public partial class KeyboardOverlay
         DragMove();
     }
 
-    private static void SetHook()
+    private static void setHook()
     {
         IntPtr hInstance = LoadLibrary("User32");
-        hhook = SetWindowsHookEx(13, _proc, hInstance, 0);
+        _hook = SetWindowsHookEx(13, _proc, hInstance, 0);
     }
 
-    private static void UnHook()
+    private static void unHook()
     {
-        UnhookWindowsHookEx(hhook);
+        UnhookWindowsHookEx(_hook);
     }
 
     protected override void OnSourceInitialized(EventArgs e)
     {
-        SetHook();
+        setHook();
     }
 
     protected override void OnClosed(EventArgs e)
     {
-        UnHook();
+        if (Application.Current.MainWindow != null) Application.Current.MainWindow.Show();
+        unHook();
     }
 
     private delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);

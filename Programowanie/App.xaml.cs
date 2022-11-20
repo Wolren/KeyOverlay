@@ -1,7 +1,5 @@
-﻿using System.Windows;
+﻿namespace Programowanie;
 
-namespace Programowanie;
-
-public partial class App : Application
+public partial class App
 {
 }

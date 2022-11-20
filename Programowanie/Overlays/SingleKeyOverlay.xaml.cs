@@ -1,8 +1,6 @@
-﻿using System.Windows;
+﻿namespace Programowanie.Overlays;
 
-namespace Programowanie.Overlays;
-
-public partial class SingleKeyOverlay : Window
+public partial class SingleKeyOverlay
 {
     public SingleKeyOverlay()
     {

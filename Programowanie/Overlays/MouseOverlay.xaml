@@ -4,15 +4,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         mc:Ignorable="d"
-        Title="MouseOverlay" Height="417" Width="1090" WindowStyle="None"
+        Title="MouseOverlay" Height="380" Width="490" WindowStyle="None"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Background="Transparent" AllowsTransparency="True"
+        Background="Transparent" AllowsTransparency="True" Topmost="True"
         BorderThickness="0">
     <Grid>
-        <TextBlock Margin="1005, 10, 0, 0" Text="CPS" Foreground="White" FontSize="20" TextAlignment="Center"/>
-        <TextBlock Margin="1005, 40, 0, 0" Name="Cps" Foreground="White" TextAlignment="Center"/>
-        <TextBlock Margin="1005, 90, 0, 0" Text="CLICKS" Foreground="White" FontSize="20" TextAlignment="Center"/>
-        <TextBlock Margin="1005, 120, 0, 0" Name="Clicks" Foreground="White" TextAlignment="Center"/>
+        <TextBlock Margin="300, 10, 0, 0" Name="CPS" Text="CPS" Foreground="White" FontSize="20" TextAlignment="Center"/>
+        <TextBlock Margin="300, 40, 0, 0" Name="Cps" Foreground="White" TextAlignment="Center"/>
+        <TextBlock Margin="300, 90, 0, 0" Name="CLICKS" Text="CLICKS" Foreground="White" FontSize="20" TextAlignment="Center"/>
+        <TextBlock Margin="300, 120, 0, 0" Name="Clicks" Foreground="White" TextAlignment="Center"/>
+        <TextBlock Margin="300, 170, 0, 0" Name="SCROLLS" Text="SCROLLS" Foreground="White" FontSize="20" TextAlignment="Center"/>
+        <TextBlock Margin="300, 200, 0, 0" Name="Scrolls" Foreground="White" TextAlignment="Center"/>
+        <TextBlock Margin="300, 250, 0, 0" Name="SPS" Text="SPS" Foreground="White" FontSize="20" TextAlignment="Center"/>
+        <TextBlock Margin="300, 280, 0, 0" Name="Sps" Foreground="White" TextAlignment="Center"/>
         <Canvas VerticalAlignment="Top" HorizontalAlignment="Left">
             <Canvas.Resources>
                 <Style TargetType="TextBlock">
@@ -30,13 +34,13 @@
                     <Setter Property="Margin" Value="0" />
                 </Style>
             </Canvas.Resources>
-            <Border Margin="420, 100, 0, 0">
+            <Border Margin="10, 130, 0, 0">
                 <TextBlock Name="LC" Text="Left Click"/>
             </Border>
-            <Border Margin="520, 100, 0, 0">
+            <Border Margin="120, 130, 0, 0">
                 <TextBlock Name="SW" Text="Scroll Wheel"/>
             </Border>
-            <Border Margin="620, 100, 0, 0">
+            <Border Margin="230, 130, 0, 0">
                 <TextBlock Name="RC" Text="Right Click"/>
             </Border>
         </Canvas>

@@ -1,7 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Input;
-using Programowanie.Overlays;
 using Programowanie.ViewModels;
 
 namespace Programowanie.Commands;
@@ -22,6 +22,7 @@ public class UpdateViewCommand : ICommand
         return true;
     }
 
+    [Localizable(false)]
     public void Execute(object? parameter)
     {
         Debug.Assert(parameter != null, nameof(parameter) + " != null");
