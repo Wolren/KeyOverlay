@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
+using static System.Windows.Application;
 using static Programowanie.Properties.Settings;
 
 namespace Programowanie.Overlays;
@@ -16,7 +17,8 @@ namespace Programowanie.Overlays;
 public partial class KeyboardOverlay
 {
     [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-    private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc callback, IntPtr instance, uint threadId);
+    private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc callback, IntPtr instance,
+        uint threadId);
 
     [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
     private static extern bool UnhookWindowsHookEx(IntPtr instance);
@@ -26,9 +28,11 @@ public partial class KeyboardOverlay
 
     [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
     private static extern IntPtr LoadLibrary([Localizable(false)] string fileName);
+
     public delegate void KeyEventHandler(int vk);
+
     public static event KeyEventHandler? OnKeyPressed;
-    
+
     private static readonly List<int> _keys = new()
     {
         0x1B, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0x7B,
@@ -38,10 +42,10 @@ public partial class KeyboardOverlay
         0xA0, 0x5A, 0x58, 0x43, 0x56, 0x42, 0x4E, 0x4D, 0xBC, 0xBE, 0xBF, 0xA1,
         0xA2, 0x5B, 0xA4, 0x20, 0xA5, 0x5D, 0x11, 0xA3
     };
-    
+
     private const int WM_KEYDOWN = 0x100;
     private const int WM_KEYUP = 0x101;
-    
+
     private static readonly LowLevelKeyboardProc _proc = hookProc;
     private static IntPtr _hook = IntPtr.Zero;
     private readonly DispatcherTimer _afk = new();
@@ -60,11 +64,13 @@ public partial class KeyboardOverlay
             CLICKS.Visibility = Visibility.Collapsed;
             Clicks.Visibility = Visibility.Collapsed;
         }
+
         if (!Default.KeyboardCPS)
         {
             CPS.Visibility = Visibility.Collapsed;
             Cps.Visibility = Visibility.Collapsed;
         }
+
         _timer.Tick += timerTick;
         _afk.Tick += endTick;
         _timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
@@ -84,7 +90,7 @@ public partial class KeyboardOverlay
             L1, L2, L3, L4, L5, L6, L7, L8
         };
     }
-    
+
     private static IntPtr hookProc(int code, IntPtr wParam, IntPtr lParam)
     {
         if (code < 0) return CallNextHookEx(_hook, code, (int)wParam, lParam);
@@ -93,7 +99,8 @@ public partial class KeyboardOverlay
         {
             if (!_keysDown.Contains(vk) && _keys.Contains(vk)) OnKeyPressed?.Invoke(vk);
             _keysDown.Add(vk);
-        } else if (wParam == (IntPtr)WM_KEYUP)
+        }
+        else if (wParam == (IntPtr)WM_KEYUP)
         {
             _keysDown.RemoveAll(k => k == vk);
         }
@@ -121,6 +128,7 @@ public partial class KeyboardOverlay
             _current = _current.Skip(1).ToList();
             _total -= _current[0];
         }
+
         _intervalClicks = 0;
         Cps.Text = Math.Round(_total, 0).ToString(CultureInfo.InvariantCulture);
         backgroundReset();
@@ -139,90 +147,10 @@ public partial class KeyboardOverlay
     private void backgroundSwitch(int vkCode)
     {
         SolidColorBrush brush = new SolidColorBrush(Colors.Red);
-        // Spróbować zastąpić "key : value" pair
-        if (vkCode == 0x1B) Esc.Background = brush;
-        else if (vkCode == 0x70) F1.Background = brush;
-        else if (vkCode == 0x71) F2.Background = brush;
-        else if (vkCode == 0x72) F3.Background = brush;
-        else if (vkCode == 0x73) F4.Background = brush;
-        else if (vkCode == 0x74) F5.Background = brush;
-        else if (vkCode == 0x75) F6.Background = brush;
-        else if (vkCode == 0x76) F7.Background = brush;
-        else if (vkCode == 0x77) F8.Background = brush;
-        else if (vkCode == 0x78) F9.Background = brush;
-        else if (vkCode == 0x79) F10.Background = brush;
-        else if (vkCode == 0x7A) F11.Background = brush;
-        else if (vkCode == 0x7B) F12.Background = brush;
-
-
-        else if (vkCode == 0xC0) N1.Background = brush;
-        else if (vkCode == 0x31) N2.Background = brush;
-        else if (vkCode == 0x32) N3.Background = brush;
-        else if (vkCode == 0x33) N4.Background = brush;
-        else if (vkCode == 0x34) N5.Background = brush;
-        else if (vkCode == 0x35) N6.Background = brush;
-        else if (vkCode == 0x36) N7.Background = brush;
-        else if (vkCode == 0x37) N8.Background = brush;
-        else if (vkCode == 0x38) N9.Background = brush;
-        else if (vkCode == 0x39) N10.Background = brush;
-        else if (vkCode == 0x30) N11.Background = brush;
-        else if (vkCode == 0xBD) N12.Background = brush;
-        else if (vkCode == 0xBB) N13.Background = brush;
-        else if (vkCode == 0x08) N14.Background = brush;
-
-
-        else if (vkCode == 0x09) Tab.Background = brush;
-        else if (vkCode == 0x51) Q.Background = brush;
-        else if (vkCode == 0x57) W.Background = brush;
-        else if (vkCode == 0x45) E.Background = brush;
-        else if (vkCode == 0x52) R.Background = brush;
-        else if (vkCode == 0x54) T.Background = brush;
-        else if (vkCode == 0x59) Y.Background = brush;
-        else if (vkCode == 0x55) U.Background = brush;
-        else if (vkCode == 0x49) I.Background = brush;
-        else if (vkCode == 0x4F) O.Background = brush;
-        else if (vkCode == 0x50) P.Background = brush;
-        else if (vkCode == 0xDB) P1.Background = brush;
-        else if (vkCode == 0xDD) P2.Background = brush;
-        else if (vkCode == 0xDC) P3.Background = brush;
-
-
-        else if (vkCode == 0x14) A1.Background = brush;
-        else if (vkCode == 0x41) A.Background = brush;
-        else if (vkCode == 0x53) S.Background = brush;
-        else if (vkCode == 0x44) D.Background = brush;
-        else if (vkCode == 0x46) F.Background = brush;
-        else if (vkCode == 0x47) G.Background = brush;
-        else if (vkCode == 0x48) H.Background = brush;
-        else if (vkCode == 0x4A) J.Background = brush;
-        else if (vkCode == 0x4B) K.Background = brush;
-        else if (vkCode == 0x4C) L.Background = brush;
-        else if (vkCode == 0xBA) A2.Background = brush;
-        else if (vkCode == 0xDE) A3.Background = brush;
-        else if (vkCode == 0x0D) A4.Background = brush;
-
-
-        else if (vkCode == 0xA0) Z1.Background = brush;
-        else if (vkCode == 0x5A) Z.Background = brush;
-        else if (vkCode == 0x58) X.Background = brush;
-        else if (vkCode == 0x43) C.Background = brush;
-        else if (vkCode == 0x56) V.Background = brush;
-        else if (vkCode == 0x42) B.Background = brush;
-        else if (vkCode == 0x4E) N.Background = brush;
-        else if (vkCode == 0x4D) M.Background = brush;
-        else if (vkCode == 0xBC) Z2.Background = brush;
-        else if (vkCode == 0xBE) Z3.Background = brush;
-        else if (vkCode == 0xBF) Z4.Background = brush;
-        else if (vkCode == 0xA1) Z5.Background = brush;
-
-
-        else if (vkCode == 0xA2) L1.Background = brush;
-        else if (vkCode == 0x5B) L2.Background = brush;
-        else if (vkCode == 0xA4) L3.Background = brush;
-        else if (vkCode == 0x20) L4.Background = brush;
-        else if (vkCode == 0xA5) L5.Background = brush;
-        else if (vkCode == 0x5D) L7.Background = brush;
-        else if (vkCode == 0xA3) L8.Background = brush;
+        for (int i = 0; i < _keys.Count && i < _lines.Count; i++)
+        {
+            if (vkCode == _keys[i]) _lines[i].Background = brush;
+        }
     }
 
     private void backgroundReset()
@@ -254,7 +182,7 @@ public partial class KeyboardOverlay
 
     protected override void OnClosed(EventArgs e)
     {
-        if (Application.Current.MainWindow != null) Application.Current.MainWindow.Show();
+        if (Current.MainWindow != null) Current.MainWindow.Show();
         unHook();
     }
 

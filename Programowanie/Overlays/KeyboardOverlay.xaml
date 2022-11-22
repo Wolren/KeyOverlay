@@ -9,9 +9,11 @@
         Background="Transparent" AllowsTransparency="True"
         BorderThickness="0" Topmost="True">
     <Grid>
-        <TextBlock Margin="1005, 10, 0, 0" Name="CPS" Text="CPS" Foreground="White" FontSize="20" TextAlignment="Center" />
+        <TextBlock Margin="1005, 10, 0, 0" Name="CPS" Text="CPS" Foreground="White" FontSize="20"
+                   TextAlignment="Center" />
         <TextBlock Margin="1005, 40, 0, 0" Name="Cps" Foreground="White" TextAlignment="Center" />
-        <TextBlock Margin="1005, 90, 0, 0" Name="CLICKS" Text="CLICKS" Foreground="White" FontSize="20" TextAlignment="Center" />
+        <TextBlock Margin="1005, 90, 0, 0" Name="CLICKS" Text="CLICKS" Foreground="White" FontSize="20"
+                   TextAlignment="Center" />
         <TextBlock Margin="1005, 120, 0, 0" Name="Clicks" Foreground="White" TextAlignment="Center" />
         <Canvas VerticalAlignment="Top" HorizontalAlignment="Left">
             <Canvas.Resources>
@@ -201,7 +203,7 @@
 
 
             <Border Margin="10, 280, 0, 0">
-                <TextBlock Name="Z1" Text="Shift" Width="130" />
+                <TextBlock Name="Z1" Text="SHIFT" Width="130" />
             </Border>
             <Border Margin="160, 280, 0, 0">
                 <TextBlock Name="Z" Text="Z" />

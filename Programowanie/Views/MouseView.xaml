@@ -15,7 +15,7 @@
                 Click="ButtonBase_OnClick">
             <Button.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="14"/>
+                    <Setter Property="CornerRadius" Value="14" />
                 </Style>
             </Button.Resources>
             <Button.Style>
@@ -26,7 +26,7 @@
                             <ControlTemplate TargetType="{x:Type Button}">
                                 <Border Background="{TemplateBinding Background}">
                                     <ContentPresenter HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center" />
+                                                      VerticalAlignment="Center" />
                                 </Border>
                             </ControlTemplate>
                         </Setter.Value>
@@ -39,13 +39,15 @@
                 </Style>
             </Button.Style>
         </Button>
-        <CheckBox Name="MouseStatistics"
-                  Height="24"
+        <CheckBox
+            Height="24"
                   FontSize="14"
                   Width="500"
                   Checked="mouseStatisticsCheck"
                   Unchecked="mouseStatisticsUncheck"
-                  Foreground="White">Turn on/off mouse statistics</CheckBox>
+                  Foreground="White">
+            Turn on/off mouse statistics
+        </CheckBox>
         <CheckBox Name="ScrollClicks"
                   Height="24"
                   FontSize="14"
@@ -53,7 +55,9 @@
                   Margin="0, 50, 0, 0"
                   Checked="scrollClicksCheck"
                   Unchecked="scrollClicksUncheck"
-                  Foreground="White">Turn on/off scroll clicks display</CheckBox>
+                  Foreground="White">
+            Turn on/off scroll clicks display
+        </CheckBox>
         <CheckBox Name="MouseClicks"
                   Height="24"
                   FontSize="14"
@@ -61,22 +65,28 @@
                   Margin="0, 100, 0, 0"
                   Checked="mouseClicksCheck"
                   Unchecked="mouseClicksUncheck"
-                  Foreground="White">Turn on/off mouse clicks display</CheckBox>
-        <CheckBox Name="ScrollCPS"
+                  Foreground="White">
+            Turn on/off mouse clicks display
+        </CheckBox>
+        <CheckBox Name="ScrollCps"
                   Height="24"
                   FontSize="14"
                   Width="500"
                   Margin="0, 150, 0, 0"
                   Checked="scrollCpsCheck"
                   Unchecked="scrollCpsUncheck"
-                  Foreground="White">Turn on/off scroll clicks per second display</CheckBox>
-        <CheckBox Name="MouseCPS"
+                  Foreground="White">
+            Turn on/off scroll clicks per second display
+        </CheckBox>
+        <CheckBox Name="MouseCps"
                   Height="24"
                   FontSize="14"
                   Width="500"
                   Margin="0, 200, 0, 0"
                   Checked="mouseCpsCheck"
                   Unchecked="mouseCpsUncheck"
-                  Foreground="White">Turn on/off mouse clicks per second display</CheckBox>
+                  Foreground="White">
+            Turn on/off mouse clicks per second display
+        </CheckBox>
     </Canvas>
 </UserControl>

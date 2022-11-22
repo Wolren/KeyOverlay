@@ -18,7 +18,8 @@ namespace Programowanie.Overlays;
 public partial class MouseOverlay
 {
     [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-    private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelMouseProc callback, IntPtr instance, uint threadId);
+    private static extern IntPtr SetWindowsHookEx(int idHook, LowLevelMouseProc callback, IntPtr instance,
+        uint threadId);
 
     [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
@@ -29,11 +30,15 @@ public partial class MouseOverlay
 
     [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
     private static extern IntPtr GetModuleHandle(string? moduleName);
+
     public delegate void KeyEventHandler(IntPtr wParam);
+
     public static event KeyEventHandler? OnKeyPressed;
+
     public delegate void ScrollEventHandler();
+
     public static event ScrollEventHandler? OnScroll;
-        
+
     private static readonly LowLevelMouseProc _proc = hookProc;
     private static IntPtr _hook = IntPtr.Zero;
     private readonly DispatcherTimer _afk = new();
@@ -44,7 +49,7 @@ public partial class MouseOverlay
     private List<double> _current2 = new();
     private readonly List<TextBlock> _lines;
     private double _clicks, _scrolls, _total, _total2, _intervalClicks, _intervalScrolls;
-        
+
     private enum MouseKeys
     {
         WM_LBUTTONDOWN = 0x0201,
@@ -63,21 +68,25 @@ public partial class MouseOverlay
             CLICKS.Visibility = Visibility.Collapsed;
             Clicks.Visibility = Visibility.Collapsed;
         }
+
         if (!Default.MouseCPS)
         {
             CPS.Visibility = Visibility.Collapsed;
             Cps.Visibility = Visibility.Collapsed;
         }
+
         if (!Default.ScrollClicks)
         {
             SCROLLS.Visibility = Visibility.Collapsed;
             Scrolls.Visibility = Visibility.Collapsed;
         }
+
         if (!Default.ScrollCPS)
         {
             SPS.Visibility = Visibility.Collapsed;
             Sps.Visibility = Visibility.Collapsed;
         }
+
         OnKeyPressed += keyHandler;
         OnScroll += scrollHandler;
         _timer.Tick += timerTick;
@@ -108,10 +117,12 @@ public partial class MouseOverlay
         {
             if (!_keysDown.Contains(vk)) OnKeyPressed?.Invoke(wParam);
             _keysDown.Add(vk);
-        } else if (wParam == (IntPtr)MouseKeys.WM_LBUTTONUP || wParam == (IntPtr)MouseKeys.WM_RBUTTONUP)
+        }
+        else if (wParam == (IntPtr)MouseKeys.WM_LBUTTONUP || wParam == (IntPtr)MouseKeys.WM_RBUTTONUP)
         {
             _keysDown.RemoveAll(k => k == vk);
-        } else if (wParam == (IntPtr)MouseKeys.WM_MOUSEWHEEL)
+        }
+        else if (wParam == (IntPtr)MouseKeys.WM_MOUSEWHEEL)
         {
             OnScroll?.Invoke();
         }
@@ -131,7 +142,7 @@ public partial class MouseOverlay
         Clicks.Text = _clicks.ToString(CultureInfo.InvariantCulture);
         _afk.Start();
     }
-        
+
     private void scrollHandler()
     {
         if (!_timer2.IsEnabled) _timer2.Start();
@@ -167,12 +178,12 @@ public partial class MouseOverlay
             _current2 = _current2.Skip(1).ToList();
             _total2 = _current2[0];
         }
-        
+
         _intervalScrolls = 0;
         Sps.Text = Math.Round(_total2, 0).ToString(CultureInfo.InvariantCulture);
         SW.Background = new SolidColorBrush(Color.FromRgb(161, 182, 200));
     }
-    
+
     private void backgroundReset()
     {
         foreach (TextBlock l in _lines) l.Background = new SolidColorBrush(Color.FromRgb(161, 182, 200));
@@ -189,7 +200,7 @@ public partial class MouseOverlay
         _timer.Stop();
         _afk.Stop();
     }
-        
+
     protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
     {
         base.OnMouseLeftButtonDown(e);
@@ -202,12 +213,12 @@ public partial class MouseOverlay
         using ProcessModule? curModule = curProcess.MainModule;
         _hook = SetWindowsHookEx(14, _proc, GetModuleHandle(curModule?.ModuleName), 0);
     }
-        
+
     private static void unHook()
     {
         UnhookWindowsHookEx(_hook);
     }
-        
+
     protected override void OnSourceInitialized(EventArgs e)
     {
         setHook();

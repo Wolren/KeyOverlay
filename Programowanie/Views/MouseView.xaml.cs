@@ -11,10 +11,11 @@ public partial class MouseView
     {
         InitializeComponent();
         if (Default.MouseClicks) MouseClicks.IsChecked = true;
-        if (Default.MouseCPS) MouseCPS.IsChecked = true;
+        if (Default.MouseCPS) MouseCps.IsChecked = true;
         if (Default.ScrollClicks) ScrollClicks.IsChecked = true;
-        if (Default.ScrollCPS) ScrollCPS.IsChecked = true;
+        if (Default.ScrollCPS) ScrollCps.IsChecked = true;
     }
+
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
         if (KeyboardView.isWindowOpen<MouseOverlay>()) return;
@@ -29,56 +30,64 @@ public partial class MouseView
     private void mouseStatisticsCheck(object sender, RoutedEventArgs e)
     {
         MouseClicks.IsChecked = true;
-        MouseCPS.IsChecked = true;
+        MouseCps.IsChecked = true;
         ScrollClicks.IsChecked = true;
-        ScrollCPS.IsChecked = true;
+        ScrollCps.IsChecked = true;
     }
 
     private void mouseStatisticsUncheck(object sender, RoutedEventArgs e)
     {
         MouseClicks.IsChecked = false;
-        MouseCPS.IsChecked = false;
+        MouseCps.IsChecked = false;
         ScrollClicks.IsChecked = false;
-        ScrollCPS.IsChecked = false;
+        ScrollCps.IsChecked = false;
     }
 
     private void scrollClicksCheck(object sender, RoutedEventArgs e)
     {
         Default.ScrollClicks = true;
+        Default.Save();
     }
 
     private void scrollClicksUncheck(object sender, RoutedEventArgs e)
     {
         Default.ScrollClicks = false;
+        Default.Save();
     }
 
     private void mouseClicksCheck(object sender, RoutedEventArgs e)
     {
         Default.MouseClicks = true;
+        Default.Save();
     }
 
     private void mouseClicksUncheck(object sender, RoutedEventArgs e)
     {
         Default.MouseClicks = false;
+        Default.Save();
     }
 
     private void scrollCpsCheck(object sender, RoutedEventArgs e)
     {
         Default.ScrollCPS = true;
+        Default.Save();
     }
 
     private void scrollCpsUncheck(object sender, RoutedEventArgs e)
     {
         Default.ScrollCPS = false;
+        Default.Save();
     }
 
     private void mouseCpsCheck(object sender, RoutedEventArgs e)
     {
         Default.MouseCPS = true;
+        Default.Save();
     }
 
     private void mouseCpsUncheck(object sender, RoutedEventArgs e)
     {
         Default.MouseCPS = false;
+        Default.Save();
     }
 }

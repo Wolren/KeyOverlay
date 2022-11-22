@@ -9,14 +9,17 @@
         Background="Transparent" AllowsTransparency="True" Topmost="True"
         BorderThickness="0">
     <Grid>
-        <TextBlock Margin="300, 10, 0, 0" Name="CPS" Text="CPS" Foreground="White" FontSize="20" TextAlignment="Center"/>
-        <TextBlock Margin="300, 40, 0, 0" Name="Cps" Foreground="White" TextAlignment="Center"/>
-        <TextBlock Margin="300, 90, 0, 0" Name="CLICKS" Text="CLICKS" Foreground="White" FontSize="20" TextAlignment="Center"/>
-        <TextBlock Margin="300, 120, 0, 0" Name="Clicks" Foreground="White" TextAlignment="Center"/>
-        <TextBlock Margin="300, 170, 0, 0" Name="SCROLLS" Text="SCROLLS" Foreground="White" FontSize="20" TextAlignment="Center"/>
-        <TextBlock Margin="300, 200, 0, 0" Name="Scrolls" Foreground="White" TextAlignment="Center"/>
-        <TextBlock Margin="300, 250, 0, 0" Name="SPS" Text="SPS" Foreground="White" FontSize="20" TextAlignment="Center"/>
-        <TextBlock Margin="300, 280, 0, 0" Name="Sps" Foreground="White" TextAlignment="Center"/>
+        <TextBlock Margin="300, 10, 0, 0" Name="CPS" Text="CPS" Foreground="White" FontSize="20" TextAlignment="Center" />
+        <TextBlock Margin="300, 40, 0, 0" Name="Cps" Foreground="White" TextAlignment="Center" />
+        <TextBlock Margin="300, 90, 0, 0" Name="CLICKS" Text="CLICKS" Foreground="White" FontSize="20"
+                   TextAlignment="Center" />
+        <TextBlock Margin="300, 120, 0, 0" Name="Clicks" Foreground="White" TextAlignment="Center" />
+        <TextBlock Margin="300, 170, 0, 0" Name="SCROLLS" Text="SCROLLS" Foreground="White" FontSize="20"
+                   TextAlignment="Center" />
+        <TextBlock Margin="300, 200, 0, 0" Name="Scrolls" Foreground="White" TextAlignment="Center" />
+        <TextBlock Margin="300, 250, 0, 0" Name="SPS" Text="SPS" Foreground="White" FontSize="20"
+                   TextAlignment="Center" />
+        <TextBlock Margin="300, 280, 0, 0" Name="Sps" Foreground="White" TextAlignment="Center" />
         <Canvas VerticalAlignment="Top" HorizontalAlignment="Left">
             <Canvas.Resources>
                 <Style TargetType="TextBlock">
@@ -25,7 +28,7 @@
                     <Setter Property="Width" Value="100" />
                     <Setter Property="Height" Value="52" />
                     <Setter Property="FontSize" Value="16" />
-                    <Setter Property="Padding" Value="0, 16, 0, 0"/>
+                    <Setter Property="Padding" Value="0, 16, 0, 0" />
                 </Style>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="4" />
@@ -35,13 +38,13 @@
                 </Style>
             </Canvas.Resources>
             <Border Margin="10, 130, 0, 0">
-                <TextBlock Name="LC" Text="Left Click"/>
+                <TextBlock Name="LC" Text="Left Click" />
             </Border>
             <Border Margin="120, 130, 0, 0">
-                <TextBlock Name="SW" Text="Scroll Wheel"/>
+                <TextBlock Name="SW" Text="Scroll Wheel" />
             </Border>
             <Border Margin="230, 130, 0, 0">
-                <TextBlock Name="RC" Text="Right Click"/>
+                <TextBlock Name="RC" Text="Right Click" />
             </Border>
         </Canvas>
     </Grid>

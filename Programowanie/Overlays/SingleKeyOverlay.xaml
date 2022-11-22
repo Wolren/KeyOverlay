@@ -4,6 +4,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         mc:Ignorable="d"
-        Title="SingleKeyOverlay" Height="450" Width="800">
-    <Grid />
+        Title="SingleKeyOverlay" Height="380" Width="490" WindowStyle="None"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Background="Transparent" AllowsTransparency="True" Topmost="True"
+        BorderThickness="0">
+    <Grid>
+        <TextBlock Margin="300, 10, 0, 0" Name="CPS" Text="CPS" Foreground="White" FontSize="20" TextAlignment="Center" />
+        <TextBlock Margin="300, 40, 0, 0" Name="Cps" Foreground="White" TextAlignment="Center" />
+        <TextBlock Margin="300, 90, 0, 0" Name="CLICKS" Text="CLICKS" Foreground="White" FontSize="20"
+                   TextAlignment="Center" />
+        <TextBlock Margin="300, 120, 0, 0" Name="Clicks" Foreground="White" TextAlignment="Center" />
+        <Canvas VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Canvas.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Background" Value="#A1B6C8" />
+                    <Setter Property="TextAlignment" Value="Center" />
+                    <Setter Property="Width" Value="52" />
+                    <Setter Property="Height" Value="52" />
+                    <Setter Property="FontSize" Value="16" />
+                    <Setter Property="Padding" Value="0, 16, 0, 0" />
+                </Style>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="4" />
+                    <Setter Property="BorderThickness" Value="3" />
+                    <Setter Property="BorderBrush" Value="Black" />
+                    <Setter Property="Margin" Value="0" />
+                </Style>
+            </Canvas.Resources>
+            <Border Margin="10, 50, 0, 0">
+                <TextBlock Name="Slot1" />
+            </Border>
+            <Border Margin="80, 50, 0, 0">
+                <TextBlock Name="Slot2" />
+            </Border>
+            <Border Margin="150, 50, 0, 0">
+                <TextBlock Name="Slot3" />
+            </Border>
+            <Border Margin="220, 50, 0, 0">
+                <TextBlock Name="Slot4" />
+            </Border>
+            <Border Margin="290, 50, 0, 0">
+                <TextBlock Name="Slot5" />
+            </Border>
+        </Canvas>
+    </Grid>
 </Window>

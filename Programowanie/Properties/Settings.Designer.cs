@@ -105,5 +105,125 @@ namespace Programowanie.Properties {
                 this["KeyboardCPS"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Slot1 {
+            get {
+                return ((string)(this["Slot1"]));
+            }
+            set {
+                this["Slot1"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Slot2 {
+            get {
+                return ((string)(this["Slot2"]));
+            }
+            set {
+                this["Slot2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Slot3 {
+            get {
+                return ((string)(this["Slot3"]));
+            }
+            set {
+                this["Slot3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Slot4 {
+            get {
+                return ((string)(this["Slot4"]));
+            }
+            set {
+                this["Slot4"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Slot5 {
+            get {
+                return ((string)(this["Slot5"]));
+            }
+            set {
+                this["Slot5"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Slot1Key {
+            get {
+                return ((int)(this["Slot1Key"]));
+            }
+            set {
+                this["Slot1Key"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Slot2Key {
+            get {
+                return ((int)(this["Slot2Key"]));
+            }
+            set {
+                this["Slot2Key"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Slot3Key {
+            get {
+                return ((int)(this["Slot3Key"]));
+            }
+            set {
+                this["Slot3Key"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Slot4Key {
+            get {
+                return ((int)(this["Slot4Key"]));
+            }
+            set {
+                this["Slot4Key"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Slot5Key {
+            get {
+                return ((int)(this["Slot5Key"]));
+            }
+            set {
+                this["Slot5Key"] = value;
+            }
+        }
     }
 }
