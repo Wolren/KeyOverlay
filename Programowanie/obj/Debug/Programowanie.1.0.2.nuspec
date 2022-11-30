@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Programowanie</id>
+    <version>1.0.2</version>
+    <title>Programowanie</title>
+    <authors>Wildbot PandaHajs</authors>
+    <description>Keyboard/Key/Mouse Overlays</description>
+    <dependencies>
+      <group targetFramework="net7.0-windows7.0">
+        <dependency id="Microsoft.Windows.Compatibility" version="7.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Xaml.Behaviors.Wpf" version="1.1.39" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net7.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\Users\Wildbot\RiderProjects\Overlay_Programowanie\Programowanie\bin\Debug\net7.0-windows\Programowanie.runtimeconfig.json" target="lib\net7.0-windows7.0\Programowanie.runtimeconfig.json" />
+    <file src="C:\Users\Wildbot\RiderProjects\Overlay_Programowanie\Programowanie\bin\Debug\net7.0-windows\Programowanie.dll" target="lib\net7.0-windows7.0\Programowanie.dll" />
+  </files>
+</package>
