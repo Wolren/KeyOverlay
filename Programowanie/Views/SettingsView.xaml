@@ -9,8 +9,8 @@
                   Height="24"
                   FontSize="14"
                   Width="500"
-                  Checked="closeCheck"
-                  Unchecked="closeUncheck"
+                  Checked="CloseCheck"
+                  Unchecked="CloseUncheck"
                   Foreground="White">
             Hide the main window when opening the overlays
         </CheckBox>

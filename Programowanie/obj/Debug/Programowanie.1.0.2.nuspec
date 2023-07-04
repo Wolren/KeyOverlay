@@ -19,7 +19,7 @@
     </frameworkReferences>
   </metadata>
   <files>
-    <file src="C:\Users\Wildbot\RiderProjects\Overlay_Programowanie\Programowanie\bin\Debug\net7.0-windows\Programowanie.runtimeconfig.json" target="lib\net7.0-windows7.0\Programowanie.runtimeconfig.json" />
-    <file src="C:\Users\Wildbot\RiderProjects\Overlay_Programowanie\Programowanie\bin\Debug\net7.0-windows\Programowanie.dll" target="lib\net7.0-windows7.0\Programowanie.dll" />
+    <file src="C:\Users\Wildbot\Documents\GitHub\Overlay_Programowanie\Programowanie\bin\Debug\net7.0-windows\Programowanie.runtimeconfig.json" target="lib\net7.0-windows7.0\Programowanie.runtimeconfig.json" />
+    <file src="C:\Users\Wildbot\Documents\GitHub\Overlay_Programowanie\Programowanie\bin\Debug\net7.0-windows\Programowanie.dll" target="lib\net7.0-windows7.0\Programowanie.dll" />
   </files>
 </package>

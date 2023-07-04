@@ -52,7 +52,7 @@ public partial class SingleKeyOverlay
     private const int WM_KEYDOWN = 0x100;
     private const int WM_KEYUP = 0x101;
 
-    private static readonly LowLevelKeyboardProc _proc = hookProc;
+    private static readonly LowLevelKeyboardProc _proc = HookProc;
     private static IntPtr _hook = IntPtr.Zero;
     private readonly DispatcherTimer _afk = new();
     private readonly DispatcherTimer _timer = new();
@@ -65,8 +65,8 @@ public partial class SingleKeyOverlay
     public SingleKeyOverlay()
     {
         InitializeComponent();
-        _timer.Tick += timerTick;
-        _afk.Tick += endTick;
+        _timer.Tick += TimerTick;
+        _afk.Tick += EndTick;
         _timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
         _afk.Interval = new TimeSpan(0, 0, 2);
         Clicks.Text = "0";
@@ -78,23 +78,20 @@ public partial class SingleKeyOverlay
         Slot3.Text = Default.Slot3;
         Slot4.Text = Default.Slot4;
         Slot5.Text = Default.Slot5;
-        OnKeyPressed += keyHandler;
-        _slots = new List<TextBlock>
-        {
-            Slot1, Slot2, Slot3, Slot4, Slot5
-        };
+        OnKeyPressed += KeyHandler;
+        _slots = new List<TextBlock> { Slot1, Slot2, Slot3, Slot4, Slot5 };
     }
 
-    private static IntPtr hookProc(int code, IntPtr wParam, IntPtr lParam)
+    private static IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam)
     {
         if (code < 0) return CallNextHookEx(_hook, code, (int)wParam, lParam);
         int vk = Marshal.ReadInt32(lParam);
-        if (wParam == (IntPtr)WM_KEYDOWN)
+        if (wParam == WM_KEYDOWN)
         {
             if (!_keysDown.Contains(vk) && _usedKeys.Contains(vk)) OnKeyPressed?.Invoke(vk);
             _keysDown.Add(vk);
         }
-        else if (wParam == (IntPtr)WM_KEYUP)
+        else if (wParam == WM_KEYUP)
         {
             _keysDown.RemoveAll(k => k == vk);
         }
@@ -102,18 +99,18 @@ public partial class SingleKeyOverlay
         return CallNextHookEx(_hook, code, (int)wParam, lParam);
     }
 
-    private void keyHandler(int vkCode)
+    private void KeyHandler(int vkCode)
     {
         if (!_timer.IsEnabled) _timer.Start();
         _afk.Stop();
         _clicks++;
         _intervalClicks++;
         Clicks.Text = _clicks.ToString(CultureInfo.InvariantCulture);
-        backgroundSwitch(vkCode);
+        BackgroundSwitch(vkCode);
         _afk.Start();
     }
 
-    private void timerTick(object? sender, EventArgs e)
+    private void TimerTick(object? sender, EventArgs e)
     {
         _current.Add(_intervalClicks);
         _total += _intervalClicks;
@@ -125,11 +122,11 @@ public partial class SingleKeyOverlay
 
         _intervalClicks = 0;
         Cps.Text = Math.Round(_total, 0).ToString(CultureInfo.InvariantCulture);
-        backgroundReset();
+        BackgroundReset();
     }
 
     [Localizable(false)]
-    private void endTick(object? sender, EventArgs e)
+    private void EndTick(object? sender, EventArgs e)
     {
         Cps.Text = "0";
         _total = 0;
@@ -138,7 +135,7 @@ public partial class SingleKeyOverlay
         _afk.Stop();
     }
 
-    private void backgroundSwitch(int vkCode)
+    private void BackgroundSwitch(int vkCode)
     {
         SolidColorBrush brush = new SolidColorBrush(Colors.Red);
         for (int i = 0; i < _usedKeys.Count && i < _slots.Count; i++)
@@ -147,7 +144,7 @@ public partial class SingleKeyOverlay
         }
     }
 
-    private void backgroundReset()
+    private void BackgroundReset()
     {
         foreach (TextBlock l in _slots) l.Background = new SolidColorBrush(Color.FromRgb(161, 182, 200));
     }
@@ -158,26 +155,26 @@ public partial class SingleKeyOverlay
         DragMove();
     }
 
-    private static void setHook()
+    private static void SetHook()
     {
         IntPtr hInstance = LoadLibrary("User32");
         _hook = SetWindowsHookEx(13, _proc, hInstance, 0);
     }
 
-    private static void unHook()
+    private static void UnHook()
     {
         UnhookWindowsHookEx(_hook);
     }
 
     protected override void OnSourceInitialized(EventArgs e)
     {
-        setHook();
+        SetHook();
     }
 
     protected override void OnClosed(EventArgs e)
     {
         Current.MainWindow?.Show();
-        unHook();
+        UnHook();
     }
 
     private delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);

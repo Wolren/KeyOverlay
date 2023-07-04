@@ -43,8 +43,8 @@
                   Height="24"
                   FontSize="14"
                   Width="500"
-                  Checked="keyboardClicksCheck"
-                  Unchecked="keyboardClicksUncheck"
+                  Checked="KeyboardClicksCheck"
+                  Unchecked="KeyboardClicksUncheck"
                   Foreground="White">
             Turn on/off mouse clicks display
         </CheckBox>
@@ -53,8 +53,8 @@
                   FontSize="14"
                   Width="500"
                   Margin="0, 50, 0, 0"
-                  Checked="keyboardCpsCheck"
-                  Unchecked="keyboardCpsUncheck"
+                  Checked="KeyboardCpsCheck"
+                  Unchecked="KeyboardCpsUncheck"
                   Foreground="White">
             Turn on/off scroll clicks per second display
         </CheckBox>

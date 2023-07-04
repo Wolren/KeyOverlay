@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Wildbot\RiderProjects\Overlay_Programowanie\Programowanie\obj\Debug\net7.0-windows\
+C:\Users\Wildbot\Documents\GitHub\Overlay_Programowanie\Programowanie\obj\Debug\net7.0-windows\
 Programowanie
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\Wildbot\RiderProjects\Overlay_Programowanie\Programowanie\App.xaml
+C:\Users\Wildbot\Documents\GitHub\Overlay_Programowanie\Programowanie\App.xaml
 81531757122
 
 191644781564
-223-1964107609
+2231599643469
 MainWindow.xaml;Overlays\KeyboardOverlay.xaml;Overlays\MouseOverlay.xaml;Overlays\SingleKeyOverlay.xaml;Views\KeyboardView.xaml;Views\MouseView.xaml;Views\SettingsView.xaml;Views\SingleKeyView.xaml;
 
 False

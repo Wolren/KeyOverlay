@@ -39,7 +39,7 @@ public partial class MouseOverlay
 
     public static event ScrollEventHandler? OnScroll;
 
-    private static readonly LowLevelMouseProc _proc = hookProc;
+    private static readonly LowLevelMouseProc _proc = HookProc;
     private static IntPtr _hook = IntPtr.Zero;
     private readonly DispatcherTimer _afk = new();
     private readonly DispatcherTimer _timer = new();
@@ -87,11 +87,11 @@ public partial class MouseOverlay
             Sps.Visibility = Visibility.Collapsed;
         }
 
-        OnKeyPressed += keyHandler;
-        OnScroll += scrollHandler;
-        _timer.Tick += timerTick;
-        _timer2.Tick += timer2Tick;
-        _afk.Tick += endTick;
+        OnKeyPressed += KeyHandler;
+        OnScroll += ScrollHandler;
+        _timer.Tick += TimerTick;
+        _timer2.Tick += Timer2Tick;
+        _afk.Tick += EndTick;
         _timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
         _timer2.Interval = new TimeSpan(0, 0, 0, 0, 100);
         _afk.Interval = new TimeSpan(0, 0, 2);
@@ -103,22 +103,19 @@ public partial class MouseOverlay
         Scrolls.FontSize = 20;
         Sps.Text = "0";
         Sps.FontSize = 20;
-        _lines = new List<TextBlock>
-        {
-            LC, RC
-        };
+        _lines = new List<TextBlock> { LC, RC };
     }
 
-    private static IntPtr hookProc(int code, IntPtr wParam, IntPtr lParam)
+    private static IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam)
     {
         if (code < 0) return CallNextHookEx(_hook, code, wParam, lParam);
         int vk = Marshal.ReadInt32(lParam);
-        if (wParam == (IntPtr)MouseKeys.WM_LBUTTONDOWN || wParam == (IntPtr)MouseKeys.WM_RBUTTONDOWN)
+        if (wParam is (IntPtr)MouseKeys.WM_LBUTTONDOWN or (IntPtr)MouseKeys.WM_RBUTTONDOWN)
         {
             if (!_keysDown.Contains(vk)) OnKeyPressed?.Invoke(wParam);
             _keysDown.Add(vk);
         }
-        else if (wParam == (IntPtr)MouseKeys.WM_LBUTTONUP || wParam == (IntPtr)MouseKeys.WM_RBUTTONUP)
+        else if (wParam is (IntPtr)MouseKeys.WM_LBUTTONUP or (IntPtr)MouseKeys.WM_RBUTTONUP)
         {
             _keysDown.RemoveAll(k => k == vk);
         }
@@ -130,7 +127,7 @@ public partial class MouseOverlay
         return CallNextHookEx(_hook, code, wParam, lParam);
     }
 
-    private void keyHandler(IntPtr wParam)
+    private void KeyHandler(IntPtr wParam)
     {
         SolidColorBrush brush = new SolidColorBrush(Colors.Red);
         if (!_timer.IsEnabled) _timer.Start();
@@ -143,7 +140,7 @@ public partial class MouseOverlay
         _afk.Start();
     }
 
-    private void scrollHandler()
+    private void ScrollHandler()
     {
         if (!_timer2.IsEnabled) _timer2.Start();
         _afk.Stop();
@@ -154,7 +151,7 @@ public partial class MouseOverlay
         _afk.Start();
     }
 
-    private void timerTick(object? sender, EventArgs e)
+    private void TimerTick(object? sender, EventArgs e)
     {
         _current.Add(_intervalClicks);
         _total += _intervalClicks;
@@ -166,10 +163,10 @@ public partial class MouseOverlay
 
         _intervalClicks = 0;
         Cps.Text = Math.Round(_total, 0).ToString(CultureInfo.InvariantCulture);
-        backgroundReset();
+        BackgroundReset();
     }
 
-    private void timer2Tick(object? sender, EventArgs e)
+    private void Timer2Tick(object? sender, EventArgs e)
     {
         _current2.Add(_intervalScrolls);
         _total2 += _intervalScrolls;
@@ -184,12 +181,12 @@ public partial class MouseOverlay
         SW.Background = new SolidColorBrush(Color.FromRgb(161, 182, 200));
     }
 
-    private void backgroundReset()
+    private void BackgroundReset()
     {
         foreach (TextBlock l in _lines) l.Background = new SolidColorBrush(Color.FromRgb(161, 182, 200));
     }
 
-    private void endTick(object? sender, EventArgs e)
+    private void EndTick(object? sender, EventArgs e)
     {
         Cps.Text = "0";
         Sps.Text = "0";
@@ -207,27 +204,27 @@ public partial class MouseOverlay
         DragMove();
     }
 
-    private static void setHook()
+    private static void SetHook()
     {
         using Process curProcess = Process.GetCurrentProcess();
         using ProcessModule? curModule = curProcess.MainModule;
         _hook = SetWindowsHookEx(14, _proc, GetModuleHandle(curModule?.ModuleName), 0);
     }
 
-    private static void unHook()
+    private static void UnHook()
     {
         UnhookWindowsHookEx(_hook);
     }
 
     protected override void OnSourceInitialized(EventArgs e)
     {
-        setHook();
+        SetHook();
     }
 
     protected override void OnClosed(EventArgs e)
     {
         if (Application.Current.MainWindow != null) Application.Current.MainWindow.Show();
-        unHook();
+        UnHook();
     }
 
     private delegate IntPtr LowLevelMouseProc(int nCode, IntPtr wParam, IntPtr lParam);

@@ -3068,11 +3068,11 @@
   "project": {
     "version": "1.0.2",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Wildbot\\RiderProjects\\Overlay_Programowanie\\Programowanie\\Programowanie.csproj",
+      "projectUniqueName": "C:\\Users\\Wildbot\\Documents\\GitHub\\Overlay_Programowanie\\Programowanie\\Programowanie.csproj",
       "projectName": "Programowanie",
-      "projectPath": "C:\\Users\\Wildbot\\RiderProjects\\Overlay_Programowanie\\Programowanie\\Programowanie.csproj",
+      "projectPath": "C:\\Users\\Wildbot\\Documents\\GitHub\\Overlay_Programowanie\\Programowanie\\Programowanie.csproj",
       "packagesPath": "C:\\Users\\Wildbot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Wildbot\\RiderProjects\\Overlay_Programowanie\\Programowanie\\obj\\",
+      "outputPath": "C:\\Users\\Wildbot\\Documents\\GitHub\\Overlay_Programowanie\\Programowanie\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3139,7 +3139,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

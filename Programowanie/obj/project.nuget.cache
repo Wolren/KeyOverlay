@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5MriWvKEm3zkzGDtZuKNHtalTb14LLpRgKjlkkmDSziB2nw9QvjPwC3k/yDsHxz0LmxJ4KtpyMfO7u0YZ7ycow==",
+  "dgSpecHash": "o5UhwStN/kWdieKLkY2XGWU5viWdNL87KGb4FefdS208qEKkxO/Wt/ZIXQinOUrDTWJoMecJVcv+ElwPcjKYuA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Wildbot\\RiderProjects\\Overlay_Programowanie\\Programowanie\\Programowanie.csproj",
+  "projectFilePath": "C:\\Users\\Wildbot\\Documents\\GitHub\\Overlay_Programowanie\\Programowanie\\Programowanie.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Wildbot\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\Wildbot\\.nuget\\packages\\microsoft.dotnet.upgradeassistant.extensions.default.analyzers\\0.4.355802\\microsoft.dotnet.upgradeassistant.extensions.default.analyzers.0.4.355802.nupkg.sha512",

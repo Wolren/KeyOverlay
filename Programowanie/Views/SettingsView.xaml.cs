@@ -11,13 +11,13 @@ public partial class SettingsView
         if (Default.Close.Equals(true)) Closed.IsChecked = true;
     }
 
-    private void closeCheck(object sender, RoutedEventArgs e)
+    private void CloseCheck(object sender, RoutedEventArgs e)
     {
         Default.Close = true;
         Default.Save();
     }
 
-    private void closeUncheck(object sender, RoutedEventArgs e)
+    private void CloseUncheck(object sender, RoutedEventArgs e)
     {
         Default.Close = false;
         Default.Save();

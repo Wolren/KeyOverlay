@@ -41,11 +41,11 @@
         </Button>
         <CheckBox
             Height="24"
-                  FontSize="14"
-                  Width="500"
-                  Checked="mouseStatisticsCheck"
-                  Unchecked="mouseStatisticsUncheck"
-                  Foreground="White">
+            FontSize="14"
+            Width="500"
+            Checked="MouseStatisticsCheck"
+            Unchecked="MouseStatisticsUncheck"
+            Foreground="White">
             Turn on/off mouse statistics
         </CheckBox>
         <CheckBox Name="ScrollClicks"
@@ -53,8 +53,8 @@
                   FontSize="14"
                   Width="500"
                   Margin="0, 50, 0, 0"
-                  Checked="scrollClicksCheck"
-                  Unchecked="scrollClicksUncheck"
+                  Checked="ScrollClicksCheck"
+                  Unchecked="ScrollClicksUncheck"
                   Foreground="White">
             Turn on/off scroll clicks display
         </CheckBox>
@@ -63,8 +63,8 @@
                   FontSize="14"
                   Width="500"
                   Margin="0, 100, 0, 0"
-                  Checked="mouseClicksCheck"
-                  Unchecked="mouseClicksUncheck"
+                  Checked="MouseClicksCheck"
+                  Unchecked="MouseClicksUncheck"
                   Foreground="White">
             Turn on/off mouse clicks display
         </CheckBox>
@@ -73,8 +73,8 @@
                   FontSize="14"
                   Width="500"
                   Margin="0, 150, 0, 0"
-                  Checked="scrollCpsCheck"
-                  Unchecked="scrollCpsUncheck"
+                  Checked="ScrollCpsCheck"
+                  Unchecked="ScrollCpsUncheck"
                   Foreground="White">
             Turn on/off scroll clicks per second display
         </CheckBox>
@@ -83,8 +83,8 @@
                   FontSize="14"
                   Width="500"
                   Margin="0, 200, 0, 0"
-                  Checked="mouseCpsCheck"
-                  Unchecked="mouseCpsUncheck"
+                  Checked="MouseCpsCheck"
+                  Unchecked="MouseCpsUncheck"
                   Foreground="White">
             Turn on/off mouse clicks per second display
         </CheckBox>
