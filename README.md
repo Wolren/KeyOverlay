@@ -2,7 +2,7 @@ The purpose of this app is to make one able to count and see how fast they click
 Overlays have three possible options: Keyboard Overlay, Mouse Overlay, and Key Overlay. The last option is customizable.
 The to-do list includes adding different keyboard layouts, improved graphics, and more customization options.
 
-![image](https://user-images.githubusercontent.com/86470291/203414650-b947d046-6195-4dc4-97a8-9712ac5735e2.png)
+![image](https://github.com/Wolren/KeyOverlay/assets/86470291/c13faf59-c73d-4465-9f1e-7c37ff979f1a)
 
 ![image](https://github.com/Wolren/KeyOverlay/assets/86470291/8b0112c1-4f65-485f-85fc-0352b5b03dbf)
 
