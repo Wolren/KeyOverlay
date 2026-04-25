@@ -27,16 +27,15 @@ jobs:
         run: dotnet restore KeyOverlay/KeyOverlay.csproj
 
       - name: Build
-        run: dotnet build KeyOverlay/KeyOverlay.csproj --configuration Release --no-restore
+        run: dotnet build KeyOverlay/KeyOverlay.csproj --configuration Release --no-restore /p:GeneratePackageOnBuild=false
 
-      - name: Publish (self-contained exe)
+      - name: Publish
         run: >
           dotnet publish KeyOverlay/KeyOverlay.csproj
           --configuration Release
           --runtime win-x64
-          --self-contained true
-          -p:PublishSingleFile=true
-          -p:IncludeNativeLibrariesForSelfExtract=true
+          --self-contained false
+          /p:GeneratePackageOnBuild=false
           --output publish/
 
       - name: Upload build artifact
@@ -66,14 +65,13 @@ jobs:
           dotnet publish KeyOverlay/KeyOverlay.csproj
           --configuration Release
           --runtime win-x64
-          --self-contained true
-          -p:PublishSingleFile=true
-          -p:IncludeNativeLibrariesForSelfExtract=true
+          --self-contained false
+          /p:GeneratePackageOnBuild=false
           --output publish/
 
       - name: Zip release
-        run: Compress-Archive -Path publish/* -DestinationPath KeyOverlay-${{ github.ref_name }}-win-x64.zip
         shell: pwsh
+        run: Compress-Archive -Path publish/* -DestinationPath KeyOverlay-${{ github.ref_name }}-win-x64.zip
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
