@@ -5,7 +5,6 @@
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <RootNamespace>Programowanie</RootNamespace>
-        <ApplicationIcon>Assets\main.ico</ApplicationIcon>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageVersion>1.0.2</PackageVersion>
         <Title>Programowanie</Title>
