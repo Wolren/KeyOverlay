@@ -1,0 +1,93 @@
+# =============================================================================
+# C# / .NET / WPF — KeyOverlay
+# =============================================================================
+
+# Build output — the main piechart offenders
+[Bb]in/
+[Oo]bj/
+
+# NuGet packages (restore from packages.lock.json, don't commit binaries)
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+nuget.exe
+project.assets.json
+project.nuget.cache
+project.packagespec.json
+*.nuget.dgspec.json
+*.nuget.g.props
+*.nuget.g.targets
+
+# Visual Studio / MSBuild
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.pidb
+
+# Rider (JetBrains) — you use Rider/DataSpell
+.idea/
+*.DotSettings.user
+rider.project.restore.info
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Ll]og/
+[Ll]ogs/
+
+# Compiled output
+*.exe
+*.dll
+*.pdb
+*.mdb
+*.lib
+*.cache
+*.ilk
+*.map
+*.exp
+*.pgd
+*.pgc
+*.pgm
+*.manifest
+*.res
+*.rsp
+*.winmd
+*.appx
+*.appxbundle
+
+# WPF / XAML generated
+*.g.cs
+*.g.i.cs
+*_wpftmp.csproj
+
+# Test results
+TestResult.xml
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.VisualState.xml
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# JetBrains IDEs (shared with Rider above)
+*.iml
+*.iws
+*.ipr
