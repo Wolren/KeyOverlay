@@ -82,6 +82,14 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
+# Archives
+*.rar
+*.7z
+*.zip
+
+# Misc
+dotnet-install.ps1
+
 # macOS
 .DS_Store
 .AppleDouble
