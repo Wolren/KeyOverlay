@@ -90,7 +90,7 @@ public partial class SingleKeyView
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        if (KeyboardView.isWindowOpen<SingleKeyOverlay>()) return;
+        if (KeyboardView.IsWindowOpen<SingleKeyOverlay>()) return;
         SingleKeyOverlay mouseOverlay = new SingleKeyOverlay();
         mouseOverlay.Show();
         if (Default.Close && Current.MainWindow != null)
