@@ -1,1 +1,74 @@
-WyFbTGljZW5zZV0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9naXRodWIvbGljZW5zZS9Xb2xyZW4vS2V5T3ZlcmxheSldKExJQ0VOU0UpClshW0xhc3QgY29tbWl0XShodHRwczovL2ltZy5zaGllbGRzLmlvL2dpdGh1Yi9sYXN0LWNvbW1pdC9Xb2xyZW4vS2V5T3ZlcmxheSldKGh0dHBzOi8vZ2l0aHViLmNvbS9Xb2xyZW4vS2V5T3ZlcmxheS9jb21taXRzKQpbIVtJc3N1ZXNdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vZ2l0aHViL2lzc3Vlcy9Xb2xyZW4vS2V5T3ZlcmxheSldKGh0dHBzOi8vZ2l0aHViLmNvbS9Xb2xyZW4vS2V5T3ZlcmxheS9pc3N1ZXMpClshW1JlcG8gc2l6ZV0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9naXRodWIvcmVwby1zaXplL1dvbHJlbi9LZXlPdmVybGF5KV0oaHR0cHM6Ly9naXRodWIuY29tL1dvbHJlbi9LZXlPdmVybGF5KQpbIVtDI10oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS9DJTIzLTExLWJsdWU/bG9nbz1jc2hhcnApXShLZXlPdmVybGF5LykKWyFbLk5FVF0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS8uTkVULTcuMC01MTJCRDQ/bG9nbz1kb3RuZXQpXShLZXlPdmVybGF5LykKWyFbV2luZG93c10oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS9XaW5kb3dzLTEwKy0wMDc4RDQ/bG9nbz13aW5kb3dzKV0oaHR0cHM6Ly93d3cubWljcm9zb2Z0LmNvbS93aW5kb3dzKQpbIVtPcGVuU1NGIFNjb3JlY2FyZF0oaHR0cHM6Ly9hcGkuc2VjdXJpdHlzY29yZWNhcmRzLmRldi9wcm9qZWN0cy9naXRodWIuY29tL1dvbHJlbi9LZXlPdmVybGF5L2JhZGdlKV0oaHR0cHM6Ly9zZWN1cml0eXNjb3JlY2FyZHMuZGV2L3ZpZXdlci8/dXJpPWdpdGh1Yi5jb20vV29scmVuL0tleU92ZXJsYXkpClshW1NvY2tldF0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS9Tb2NrZXQtU3VwcGx5JTIwQ2hhaW4lMjBTZWN1cml0eS0zMzM/bG9nbz1zb2NrZXRkb3RkZXYpXShodHRwczovL3NvY2tldC5kZXYpCgojIEtleU92ZXJsYXkKCkEgV1BGIG92ZXJsYXkgYXBwbGljYXRpb24gZm9yIHRyYWNraW5nIGFuZCB2aXN1YWxpemluZyBrZXlib2FyZCBhbmQgbW91c2UgaW5wdXQgaW4gcmVhbCB0aW1lIOKAlCB1c2VmdWwgZm9yIG1lYXN1cmluZyBjbGljayBzcGVlZCBhbmQga2V5IGFjdGl2aXR5IG9uIHRvcCBvZiBvdGhlciBhcHBzLgoKIyMgRmVhdHVyZXMKCi0gKipLZXlib2FyZCBPdmVybGF5Kiog4oCUIGRpc3BsYXlzIGxpdmUga2V5Ym9hcmQgaW5wdXQKLSAqKk1vdXNlIE92ZXJsYXkqKiDigJQgdHJhY2tzIGFuZCBkaXNwbGF5cyBtb3VzZSBidXR0b24gcHJlc3NlcwotICoqS2V5IE92ZXJsYXkqKiDigJQgZnVsbHkgY3VzdG9taXphYmxlIGtleSB0cmFja2luZyBvdmVybGF5CgojIyBUby1kbwoKLSBbIF0gQWRkaXRpb25hbCBrZXlib2FyZCBsYXlvdXQgc3VwcG9ydAotIFsgXSBJbXByb3ZlZCBncmFwaGljcyBhbmQgYW5pbWF0aW9ucwotIFsgXSBNb3JlIGN1c3RvbWl6YXRpb24gb3B0aW9ucwoKIyMgU2NyZWVuc2hvdHMKCiFbS2V5Ym9hcmQgT3ZlcmxheV0oaHR0cHM6Ly9naXRodWIuY29tL1dvbHJlbi9LZXlPdmVybGF5L2Fzc2V0cy84NjQ3MDI5MS9jMTNmYWY1OS1jNzNkLTQ0NjUtOWYxZS03YzM3ZmY5NzlmMWEpCgohW01vdXNlIE92ZXJsYXldKGh0dHBzOi8vZ2l0aHViLmNvbS9Xb2xyZW4vS2V5T3ZlcmxheS9hc3NldHMvODY0NzAyOTEvOGIwMTEyYzEtNGY2NS00ODVmLTg1ZmMtMDM1MmI1YjAzZGJmKQoKIVtLZXkgT3ZlcmxheV0oaHR0cHM6Ly9naXRodWIuY29tL1dvbHJlbi9LZXlPdmVybGF5L2Fzc2V0cy84NjQ3MDI5MS9iY2NhMmVhOC1iNjVkLTQzZTQtOTFlMy05OWE3MmY5YTFhNTQpCgojIyBCdWlsdCB3aXRoCgotIEMjIC8gV1BGICguTkVUIDcsIFdpbmRvd3MpCi0gTVZWTSBhcmNoaXRlY3R1cmU=
+[![License](https://img.shields.io/github/license/Wolren/KeyOverlay)](LICENSE) [![Last commit](https://img.shields.io/github/last-commit/Wolren/KeyOverlay)](https://github.com/Wolren/KeyOverlay/commits) [![Issues](https://img.shields.io/github/issues/Wolren/KeyOverlay)](https://github.com/Wolren/KeyOverlay/issues) [![Repo size](https://img.shields.io/github/repo-size/Wolren/KeyOverlay)](https://github.com/Wolren/KeyOverlay) [![C#](https://img.shields.io/badge/C%23-11-blue?logo=csharp)](KeyOverlay/) [![.NET](https://img.shields.io/badge/.NET-7.0-512BD4?logo=dotnet)](KeyOverlay/) [![Windows](https://img.shields.io/badge/Windows-10+-0078D4?logo=windows)](https://www.microsoft.com/windows) [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Wolren/KeyOverlay/badge)](https://securityscorecards.dev/viewer/?uri=github.com/Wolren/KeyOverlay) [![Socket](https://img.shields.io/badge/Socket-Supply%20Chain%20Security-333?logo=socketdotdev)](https://socket.dev)
+
+# KeyOverlay
+
+[![.NET](https://img.shields.io/badge/.NET-7.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/download/dotnet/7.0)
+[![Platform](https://img.shields.io/badge/platform-Windows-0078D4?logo=windows)](https://www.microsoft.com/windows)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/Wolren/KeyOverlay?style=flat&logo=github)](https://github.com/Wolren/KeyOverlay)
+
+Real-time keyboard and mouse input visualization overlay for Windows. Displays key presses, clicks, and CPS (clicks per second) on top of other applications. Built with WPF and .NET 7 using the MVVM pattern.
+
+## Features
+
+- **Keyboard Overlay** -- full 104-key layout with visual press feedback and CPS counter
+- **Mouse Overlay** -- tracks left/right clicks, scroll wheel, with CPS and SPS counters
+- **Single Key Overlay** -- customizable slot-based key tracking with CPS counter
+- **Always-on-top** windows that stay visible over fullscreen applications
+- **Frameless** transparent window with drag-to-move and minimize/close controls
+- **Settings panel** for configuration
+
+## Screenshots
+
+| Keyboard Overlay | Mouse Overlay | Key Overlay |
+|---|---|---|
+| ![Keyboard Overlay](https://github.com/Wolren/KeyOverlay/assets/86470291/c13faf59-c73d-4465-9f1e-7c37ff979f1a) | ![Mouse Overlay](https://github.com/Wolren/KeyOverlay/assets/86470291/8b0112c1-4f65-485f-85fc-0352b5b03dbf) | ![Key Overlay](https://github.com/Wolren/KeyOverlay/assets/86470291/bcca2ea8-b65d-43e4-91e3-99a72f9a1a54) |
+
+## Getting Started
+
+### Prerequisites
+
+- Windows 10/11
+- [.NET 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0)
+
+### Build & Run
+
+```sh
+git clone https://github.com/Wolren/KeyOverlay.git
+cd KeyOverlay
+dotnet build
+dotnet run --project KeyOverlay
+```
+
+## Architecture
+
+- **MVVM** pattern with `BaseViewModel` implementing `INotifyPropertyChanged`
+- **Windows API** low-level keyboard/mouse hooks (`SetWindowsHookEx`) for global input capture
+- **View-first navigation** via `UpdateViewCommand` with `DataTemplate` bindings in `App.xaml`
+
+```
+KeyOverlay/
+  Overlays/       -- Window overlays (Keyboard, Mouse, SingleKey)
+  ViewModels/     -- MVVM view models (Main, Keyboard, Mouse, SingleKey, Settings)
+  Views/          -- UserControl views for each view model
+  Commands/       -- ICommand implementations
+  Assets/         -- Application icon
+```
+
+## Download
+
+Pre-built binaries are available on the [Releases](https://github.com/Wolren/KeyOverlay/releases) page.
+
+## Built With
+
+- C# / WPF (.NET 7, Windows)
+- Microsoft.Xaml.Behaviors.Wpf
+- Windows API (low-level keyboard/mouse hooks)
+
+## Author
+
+- [@Wolren](https://github.com/Wolren)
+
+## License
+
+This project is licensed under the MIT License -- see the [LICENSE](LICENSE) file for details.
