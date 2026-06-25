@@ -1,3 +1,11 @@
+[![License](https://img.shields.io/github/license/Wolren/KeyOverlay)](LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/Wolren/KeyOverlay)](https://github.com/Wolren/KeyOverlay/commits)
+[![Issues](https://img.shields.io/github/issues/Wolren/KeyOverlay)](https://github.com/Wolren/KeyOverlay/issues)
+[![Repo size](https://img.shields.io/github/repo-size/Wolren/KeyOverlay)](https://github.com/Wolren/KeyOverlay)
+[![C#](https://img.shields.io/badge/C%23-11-blue?logo=csharp)](KeyOverlay/)
+[![.NET](https://img.shields.io/badge/.NET-7.0-512BD4?logo=dotnet)](KeyOverlay/)
+[![Windows](https://img.shields.io/badge/Windows-10+-0078D4?logo=windows)](https://www.microsoft.com/windows)
+
 # KeyOverlay
 
 [![.NET](https://img.shields.io/badge/.NET-7.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/download/dotnet/7.0)
