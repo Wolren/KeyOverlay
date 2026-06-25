@@ -6,3 +6,4 @@
 [![.NET](https://img.shields.io/badge/.NET-7.0-512BD4?logo=dotnet)](KeyOverlay/)
 [![Windows](https://img.shields.io/badge/Windows-10+-0078D4?logo=windows)](https://www.microsoft.com/windows)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Wolren/KeyOverlay/badge)](https://securityscorecards.dev/viewer/?uri=github.com/Wolren/KeyOverlay)
+[![Socket](https://img.shields.io/badge/Socket-Supply%20Chain%20Security-333?logo=socketdotdev)](https://socket.dev)
