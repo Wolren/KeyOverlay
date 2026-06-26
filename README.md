@@ -2,11 +2,6 @@
 
 # KeyOverlay
 
-[![.NET](https://img.shields.io/badge/.NET-7.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/download/dotnet/7.0)
-[![Platform](https://img.shields.io/badge/platform-Windows-0078D4?logo=windows)](https://www.microsoft.com/windows)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/Wolren/KeyOverlay?style=flat&logo=github)](https://github.com/Wolren/KeyOverlay)
-
 Real-time keyboard and mouse input visualization overlay for Windows. Displays key presses, clicks, and CPS (clicks per second) on top of other applications. Built with WPF and .NET 7 using the MVVM pattern.
 
 ## Features
