@@ -6,9 +6,9 @@ Real-time keyboard and mouse input visualization overlay for Windows. Displays k
 
 ## Features
 
-- **Keyboard Overlay** -- full 104-key layout with visual press feedback and CPS counter
-- **Mouse Overlay** -- tracks left/right clicks, scroll wheel, with CPS and SPS counters
-- **Single Key Overlay** -- customizable slot-based key tracking with CPS counter
+- **Keyboard Overlay**: full 104-key layout with visual press feedback and CPS counter
+- **Mouse Overlay**: tracks left/right clicks, scroll wheel, with CPS and SPS counters
+- **Single Key Overlay**: customizable slot-based key tracking with CPS counter
 - **Always-on-top** windows that stay visible over fullscreen applications
 - **Frameless** transparent window with drag-to-move and minimize/close controls
 - **Settings panel** for configuration
@@ -43,11 +43,11 @@ dotnet run --project KeyOverlay
 
 ```
 KeyOverlay/
-  Overlays/       -- Window overlays (Keyboard, Mouse, SingleKey)
-  ViewModels/     -- MVVM view models (Main, Keyboard, Mouse, SingleKey, Settings)
-  Views/          -- UserControl views for each view model
-  Commands/       -- ICommand implementations
-  Assets/         -- Application icon
+  Overlays/       - Window overlays (Keyboard, Mouse, SingleKey)
+  ViewModels/     - MVVM view models (Main, Keyboard, Mouse, SingleKey, Settings)
+  Views/          - UserControl views for each view model
+  Commands/       - ICommand implementations
+  Assets/         - Application icon
 ```
 
 ## Download
@@ -66,4 +66,4 @@ Pre-built binaries are available on the [Releases](https://github.com/Wolren/Key
 
 ## License
 
-This project is licensed under the MIT License -- see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
